@@ -1,14 +1,17 @@
+
 # ⚡ TechCard
 
-**TechCard** est un widget de profil élégant, ultra-léger et hautement personnalisable, conçu pour être intégré sur n'importe quel site web en une seule ligne de code.
+**TechCard** is an elegant, ultra-lightweight, and highly customizable profile widget designed to be integrated into any website with a single line of code.
 
-Grâce à l'utilisation du **Shadow DOM**, TechCard reste totalement isolé du style CSS de votre site hôte, garantissant un rendu parfait peu importe votre framework ou vos feuilles de style existantes.
+By leveraging **Shadow DOM**, TechCard remains completely isolated from the host site's CSS, ensuring a perfect render regardless of your framework or existing stylesheets.
 
------
+**Live Demo:** [TechCard](https://tostenn.github.io/TechCard/)
 
-## 🚀 Installation Rapide
+---
 
-Pas besoin de compilation ni de téléchargement. Utilisez directement le CDN :
+## 🚀 Quick Start
+
+No compilation or download required. Use the CDN directly:
 
 ```html
 <script src="https://cdn.jsdelivr.net/gh/Tostenn/TechCard/build/techcard.js"></script>
@@ -20,107 +23,96 @@ Pas besoin de compilation ni de téléchargement. Utilisez directement le CDN :
       user: {
         name: "Kouya Tosten",
         role: "Full-Stack Developer",
-        avatar: "votre-photo.jpg"
+        avatar: "your-photo.jpg"
       }
-    });
+    }).open();
   }
 </script>
 ```
 
------
+---
 
-## ⚙️ Configuration Complète
+## ⚙️ Full Configuration
 
-TechCard est pensé pour être flexible. Voici l'ensemble des options disponibles pour l'objet `option` :
+TechCard is built for flexibility. Below are all the available options for the `option` object:
 
-### 1\. Paramètres de Base
+### 1. Base Parameters
 
-| Option | Type | Par défaut | Description |
+| Option | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
-| `card` | `string` | `"solo-mini"` | Le format de la carte (`"solo"` pour complet, `"solo-mini"` pour compact). |
-| `theme` | `string` | `"dark"` | Le thème visuel (`"dark"` ou `"light"`). |
-| `creditsText` | `string` | `"Powered by"` | Texte affiché en bas de la carte. |
+| `card` | `string` | `"solo-mini"` | Card format (`"solo"` for full, `"solo-mini"` for compact). |
+| `theme` | `string` | `"dark"` | Visual theme (`"dark"` or `"light"`). |
+| `creditsText` | `string` | `"Powered by"` | Text displayed at the bottom of the card. |
 
-### 2\. Objet `user` (Profil)
+### 2. `user` Object (Profile)
 
-| Sous-option | Type | Description |
+| Sub-option | Type | Description |
 | :--- | :--- | :--- |
-| `name` | `string` | Votre nom complet. |
-| `role` | `string` | Titre professionnel ou accroche. |
-| `bio` | `string` | Une courte description (supporte le texte brut). |
-| `avatar` | `string` | URL de votre photo de profil. |
-| `qrcode` | `string` | URL vers une image de QR Code (ex: vers votre vCard ou LinkedIn). |
-| `socials` | `array` | Liste d'objets `{ name, url }`. |
+| `name` | `string` | Your full name. |
+| `role` | `string` | Professional title or tagline. |
+| `bio` | `string` | A short description (supports plain text). |
+| `avatar` | `string` | URL of your profile picture. |
+| `qrcode` | `string` | URL to a QR Code image (e.g., pointing to your vCard or LinkedIn). |
+| `socials` | `array` | List of objects `{ name, url }`. |
 
-### 3\. Objet `content` (Expertise)
+### 3. `content` Object (Expertise)
 
-| Sous-option | Type | Description |
+| Sub-option | Type | Description |
 | :--- | :--- | :--- |
-| `techStack` | `object` | Contient `backend` et `frontend` (tableaux d'objets `{name, version}`). |
-| `projectGoal` | `string` | Texte expliquant l'objectif du projet ou votre vision actuelle. |
-| `stats` | `array` | Liste d'objets `{ label, value, description }` pour afficher des chiffres clés. |
+| `techStack` | `object` | Contains `backend` and `frontend` (arrays of `{name, version}` objects). |
+| `projectGoal` | `string` | Text explaining the project goal or your current vision. |
+| `stats` | `array` | List of objects `{ label, value, description }` to display key metrics. |
 
------
+---
 
-## ⌨️ Raccourcis Clavier
+## ⌨️ Keyboard Shortcuts
 
-TechCard inclut une navigation intelligente. Une fois intégré, vous pouvez utiliser :
+TechCard includes smart navigation. Once integrated, you can use:
 
-  * **`Ctrl + Alt + D`** : Ouvrir/Fermer instantanément le widget pour une démo rapide.
+* **`Ctrl + Alt + D`**: Instantly open/close the widget for a quick demo.
 
------
+---
 
-## 🤝 Collaboration & Durabilité
+## 🤝 Collaboration & Sustainability
 
-TechCard ne se veut pas être un simple script "one-shot". L'objectif est de construire un outil **robuste et durable** pour la communauté.
+TechCard is not just a "one-shot" script. The goal is to build a **robust and sustainable** tool for the developer community.
 
-### 🚩 Signaler un problème
+### 🚩 Reporting an Issue
+If you notice a **visual inconsistency**, a **responsive bug**, or a code error:
+1.  Check if the issue already exists.
+2.  Open an **[Issue](https://github.com/Tostenn/TechCard/issues)** by describing your environment (Browser, OS).
 
-Si vous constatez une **incohérence visuelle**, un **bug de responsive** ou une erreur dans le code :
+### 💡 Contributing
+Pull Requests are welcome! Whether it's for:
+* Improving accessibility (A11y).
+* Optimizing JS/CSS bundle size.
+* Adding missing social media icons.
 
-1.  Vérifiez si l'issue existe déjà.
-2.  Ouvrez une **[Issue](https://github.com/Tostenn/TechCard/issues)** en décrivant précisément votre environnement (Navigateur, OS).
+---
 
-### 💡 Contribuer
+## 🗺️ Project Roadmap
 
-Les Pull Requests sont les bienvenues \! Que ce soit pour :
+The project is evolving to become the ultimate digital signature for developers. Our priorities:
 
-  * Améliorer l'accessibilité (A11y).
-  * Optimiser le poids du fichier JS/CSS.
-  * Ajouter des icônes de réseaux sociaux manquantes.
+* **[ ] Team Cards (Multi-Profile)**: A new option to display an entire team or multiple collaborators within a single widget (ideal for agencies or group projects).
+* **[ ] Community Themes**: Adding various templates (*Glassmorphism, Retro Terminal, Minimalist*).
+* **[ ] Core Optimization**: Reducing bundle size and optimizing CSS rendering.
+* **[ ] Config v2 Structure**: A modular configuration allowing specific blocks to be enabled/disabled on the fly.
+* **[ ] TechCard Platform**: A SaaS interface to configure your card visually and get a unique link without handling JSON code.
 
------
+---
 
-C'est noté. J'ai intégré la fonctionnalité **"Team Cards"** (cartes pour les équipes) directement dans la **Roadmap** comme une évolution majeure du produit, tout en conservant la section de présentation des contributeurs du projet.
+### Why contribute?
+If you have ideas for the **Team Cards** system or want to propose a new design, your help is welcome. TechCard is an open project: we aim to fix every inconsistency to provide a seamless experience across all browsers.
 
-Voici la version mise à jour pour ton `README.md` :
+> **Want to participate?** Open an [Issue](https://github.com/Tostenn/TechCard/issues) to discuss a new feature or submit a Pull Request directly!
 
------
+---
 
-## 🗺️ Roadmap (Avenir du projet)
+## 📄 License
 
-Le projet évolue pour devenir l'outil de référence pour la signature numérique des développeurs. Voici les prochaines étapes :
+Distributed under the MIT License. See `LICENSE` for more information.
 
-  * **[ ] Team Cards (Multi-Profils)** : Une nouvelle option permettant d'afficher une équipe entière ou plusieurs collaborateurs au sein d'un même widget (idéal pour les agences ou les projets collectifs).
-  * **[ ] Thèmes Communautaires** : Ajout de templates variés (*Glassmorphism, Retro Terminal, Minimalist*).
-  * **[ ] Optimisation Core** : Réduction du poids du bundle JS et optimisation du rendu CSS.
-  * **[ ] Structure de Config v2** : Une configuration modulaire permettant d'activer/désactiver des blocs spécifiques à la volée.
-  * **[ ] TechCard Platform** : Une interface SaaS pour configurer votre carte visuellement et obtenir un lien unique sans avoir à manipuler de code JSON.
+---
 
------
-
-### Pourquoi contribuer ?
-
-Si vous avez des idées pour le système de **Team Cards** ou si vous souhaitez proposer un nouveau design, votre aide est la bienvenue. TechCard est un projet ouvert : nous cherchons à corriger chaque incohérence pour offrir une expérience fluide sur tous les navigateurs.
-
-> **Envie de participer ?** Ouvrez une [Issue](https://www.google.com/search?q=https://github.com/Tostenn/TechCard/issues) pour discuter d'une nouvelle fonctionnalité ou proposez une Pull Request directement \!
-
------
-
-## 📄 Licence
-
-Distribué sous la licence MIT. Voir `LICENSE` pour plus d'informations.
-
------
-
-**Créé avec ❤️ par [Kouya Tosten](https://github.com/Tostenn)**
+**Created with ❤️ by [Kouya Tosten](https://github.com/Tostenn)**
