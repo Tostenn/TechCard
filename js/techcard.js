@@ -16,7 +16,7 @@ class TechCard {
             card: "solo-mini",
             theme: "dark",
             creditsText: "Powered by",
-            cssHref: "https://cdn.jsdelivr.net/gh/Tostenn/TechCard/css/techcard.css",
+            cssHref: "css/techcard.css",
             user: {
                 name: "",
                 role: "",
@@ -300,7 +300,7 @@ class TechCard {
         });
         avatarImg.loading = "lazy";
 
-        const content = this.makeElement(header, "div", "min-w-0 flex-1 justify-center pr-14 sm:pr-0");
+        const content = this.makeElement(header, "div", "flex flex-col min-w-0 flex-1 justify-center items-center");
 
         const topline = this.makeElement(content, "div", "user-topline");
 
@@ -520,7 +520,7 @@ class TechCard {
         });
         avatarImg.loading = "lazy";
 
-        const info = this.makeElement(header, "div", "min-w-0 flex-1");
+        const info = this.makeElement(header, "div", "flex flex-col min-w-0 flex-1 justify-center items-center");
 
         const topline = this.makeElement(info, "div", "user-topline");
 
