@@ -91,7 +91,7 @@
               class="min-w-full h-full snap-center flex items-center justify-center relative"
             >
               <img
-                src="/images/demo-solo-light.webp"
+                src="https://cdn.jsdelivr.net/gh/Tostenn/TechCard/images/demo-solo-light.webp"
                 alt="Aperçu Mode solo light"
                 class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500"
               />
@@ -106,7 +106,7 @@
               class="min-w-full h-full snap-center flex items-center justify-center relative"
             >
               <img
-                src="/images/demo-solo-dark.webp"
+                src="https://cdn.jsdelivr.net/gh/Tostenn/TechCard/images/demo-solo-dark.webp"
                 alt="Aperçu Mode solo dark"
                 class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500"
               />
@@ -121,7 +121,7 @@
               class="min-w-full h-full snap-center flex items-center justify-center relative"
             >
               <img
-                src="/images/demo-solo-mini-mode-light.webp"
+                src="https://cdn.jsdelivr.net/gh/Tostenn/TechCard/images/demo-solo-mini-mode-light.webp"
                 alt="Aperçu Mode Mini"
                 class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500"
               />
@@ -172,31 +172,91 @@
     </section>
 
     <main id="docs" class="max-w-4xl mx-auto px-6 space-y-32 pb-32">
-      <section>
+      <section id="install">
         <h2 class="text-3xl font-bold text-white mb-6">Installation Rapide</h2>
         <p class="text-slate-400 mb-6">
-          Ajoutez simplement le script et initialisez-le avec vos informations.
+          Intégrez TechCard en quelques secondes. Copiez le snippet ci-dessous
+          et collez-le avant la balise <code>&lt;/body&gt;</code> de votre site.
         </p>
 
-        <div
-          class="bg-slate-900 rounded-xl p-6 border border-slate-800 overflow-x-auto"
-        >
-          <code class="text-blue-400 text-sm">
-            &lt;script src="/js/techcard.js"&gt;&lt;/script&gt;<br />
-            &lt;script&gt;<br />
-            &nbsp;&nbsp;new window.TechCard({<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;card: "solo",<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;user: {<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name: "Votre Nom",<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;role: "Développeur
-            Full-Stack",<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;avatar: "url_image.jpg"<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;}<br />
-            &nbsp;&nbsp;}).open();<br />
-            &lt;/script&gt;
-          </code>
+        <div class="relative group">
+          <button
+            onclick="copyCode(this)"
+            class="absolute right-4 top-4 z-10 p-2 rounded-lg bg-slate-800 border border-slate-700 text-slate-400 hover:text-white hover:bg-slate-700 transition-all active:scale-95 cursor-pointer shadow-xl"
+            title="Copier le code"
+          >
+            <svg
+              id="copy-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-5 h-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
+              />
+            </svg>
+            <svg
+              id="check-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-5 h-5 hidden text-emerald-400"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+          </button>
+
+          <div
+            class="bg-slate-900 rounded-2xl p-6 border border-slate-800 overflow-hidden shadow-inner font-mono text-sm leading-relaxed"
+          >
+            <pre
+              id="code-block"
+              class="text-blue-400 overflow-x-auto custom-scrollbar"
+            ><span class="text-slate-500">&lt;!-- Import TechCard via CDN --&gt;</span>
+&lt;<span class="text-emerald-400">script</span> <span class="text-purple-400">src</span>=<span class="text-amber-300">"https://cdn.jsdelivr.net/gh/Tostenn/TechCard/js/techcard.js"</span>&gt;&lt;/<span class="text-emerald-400">script</span>&gt;
+
+&lt;<span class="text-emerald-400">script</span>&gt;
+  <span class="text-slate-200">window.onload = () => {</span>
+    <span class="text-purple-400">new</span> <span class="text-slate-200">window.TechCard({</span>
+      <span class="text-slate-400">card:</span> <span class="text-amber-300">"solo"</span>,
+      <span class="text-slate-400">user:</span> {
+        <span class="text-slate-400">name:</span> <span class="text-amber-300">"Votre Nom"</span>,
+        <span class="text-slate-400">role:</span> <span class="text-amber-300">"Développeur Full-Stack"</span>,
+        <span class="text-slate-400">avatar:</span> <span class="text-amber-300">"https://votre-image.jpg"</span>
+      }
+    <span class="text-slate-200">});</span>
+  <span class="text-slate-200">}</span>
+&lt;/<span class="text-emerald-400">script</span>&gt;</pre>
+          </div>
         </div>
       </section>
+
+      <style>
+        .custom-scrollbar::-webkit-scrollbar {
+          height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+          background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+          background: #1e293b;
+          border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+          background: #334155;
+        }
+      </style>
 
       <section>
         <div class="grid md:grid-cols-2 gap-12">
@@ -369,7 +429,36 @@
       // Lancement initial
       startAutoplay();
     </script>
-    <script src="/js/techcard.js"></script>
+    <script>
+      function copyCode(button) {
+        const code = document.getElementById("code-block").innerText;
+        const copyIcon = button.querySelector("#copy-icon");
+        const checkIcon = button.querySelector("#check-icon");
+
+        navigator.clipboard
+          .writeText(code)
+          .then(() => {
+            // Animation : Masquer l'icône copier, afficher l'icône check
+            copyIcon.classList.add("hidden");
+            checkIcon.classList.remove("hidden");
+            button.classList.add("border-emerald-500/50", "bg-emerald-500/10");
+
+            // Retour à l'état initial après 2 secondes
+            setTimeout(() => {
+              copyIcon.classList.remove("hidden");
+              checkIcon.classList.add("hidden");
+              button.classList.remove(
+                "border-emerald-500/50",
+                "bg-emerald-500/10",
+              );
+            }, 2000);
+          })
+          .catch((err) => {
+            console.error("Erreur lors de la copie : ", err);
+          });
+      }
+    </script>
+    <script src="https://cdn.jsdelivr.net/gh/Tostenn/TechCard/js/techcard.js"></script>
     <script>
       // Instance globale pour la démo
       const myCard = new window.TechCard({
@@ -386,7 +475,10 @@
           social_long: true,
           socials: [
             { name: "GitHub", url: "https://github.com/Tostenn" },
-            { name: "LinkedIn", url: "https://www.linkedin.com/in/tosten-kouya/" },
+            {
+              name: "LinkedIn",
+              url: "https://www.linkedin.com/in/tosten-kouya/",
+            },
           ],
         },
         content: {
@@ -411,3 +503,4 @@
     </script>
   </body>
 </html>
+
