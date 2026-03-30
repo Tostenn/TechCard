@@ -11,7 +11,7 @@ Grâce à l'utilisation du **Shadow DOM**, TechCard reste totalement isolé du s
 Pas besoin de compilation ni de téléchargement. Utilisez directement le CDN :
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/Tostenn/TechCard/js/techcard.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/Tostenn/TechCard/build/techcard.js"></script>
 
 <script>
   window.onload = () => {
