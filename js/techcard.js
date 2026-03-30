@@ -300,7 +300,7 @@ class TechCard {
         });
         avatarImg.loading = "lazy";
 
-        const content = this.makeElement(header, "div", "min-w-0 flex-1 pr-14 sm:pr-0");
+        const content = this.makeElement(header, "div", "min-w-0 flex-1 justify-center pr-14 sm:pr-0");
 
         const topline = this.makeElement(content, "div", "user-topline");
 
