@@ -16,7 +16,7 @@ class TechCard {
             card: "solo-mini",
             theme: "dark",
             creditsText: "Powered by",
-            cssHref: "/css/techcard.css",
+            cssHref: "https://cdn.jsdelivr.net/gh/Tostenn/TechCard/css/techcard.css",
             user: {
                 name: "",
                 role: "",
