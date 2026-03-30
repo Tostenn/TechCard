@@ -603,13 +603,16 @@ class TechCard {
 
         const stackContent = this.makeElement(stackPanel, "div", "content-stack");
 
-        const backendGroup = this.makeElement(stackContent, "div", "tech-group");
-        const backendTitle = this.makeElement(backendGroup, "p", "text-sm font-semibold uppercase tracking-wide text-slate-500");
-        backendTitle.textContent = "Backend";
+        if (content.techStack?.backend) {
+            const backendGroup = this.makeElement(stackContent, "div", "tech-group");
+            const backendTitle = this.makeElement(backendGroup, "p", "text-sm font-semibold uppercase tracking-wide text-slate-500");
+            backendTitle.textContent = "Backend";
+    
+            (content.techStack?.backend || []).forEach((tech) => {
+                backendGroup.appendChild(this.makeTechItem(backendGroup, tech));
+            });
 
-        (content.techStack?.backend || []).forEach((tech) => {
-            backendGroup.appendChild(this.makeTechItem(backendGroup, tech));
-        });
+        }
 
         const frontendGroup = this.makeElement(stackContent, "div", "tech-group");
         const frontendTitle = this.makeElement(frontendGroup, "p", "text-sm font-semibold uppercase tracking-wide text-slate-500");
