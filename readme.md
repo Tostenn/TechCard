@@ -8,6 +8,16 @@ By leveraging **Shadow DOM**, TechCard remains completely isolated from the host
 
 -----
 
+## ⌨️ Magic Shortcut
+
+Want to see the magic instantly? Once integrated, just hit:
+
+  * **`Ctrl + Alt + D`**: Instantly open or close the widget.
+
+> **Why "D"?** Because for a **D**eveloper, a great **D**emo should always be just one **D**ynamic keystroke away\! 🚀
+
+-----
+
 ## 🚀 Quick Start
 
 Choose the method that best fits your project:
@@ -45,19 +55,42 @@ const card = new TechCard({ /* options */ });
 
 -----
 
-## ⚙️ Configuration
+## ⚙️ Full Configuration
 
-TechCard is built on a flexible structure organized into three pillars:
+TechCard is built for flexibility. Below are all the available options for the `option` object:
 
-  * **Visuals**: Manage the `theme` ("dark" or "light") and the card format (`solo`, `solo-mini`).
-  * **Identity (`user`)**: Display your `name`, `role`, `bio`, and social media links (`socials`).
-  * **Expertise (`content`)**: Highlight your `techStack` (Backend/Frontend), project goals, and key metrics.
+### 1\. Base Parameters
+
+| Option | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `card` | `string` | `"solo-mini"` | Card format (`"solo"` for full, `"solo-mini"` for compact). |
+| `theme` | `string` | `"dark"` | Visual theme (`"dark"` or `"light"`). |
+| `creditsText` | `string` | `"Powered by"` | Text displayed at the bottom of the card. |
+
+### 2\. `user` Object (Profile)
+
+| Sub-option | Type | Description |
+| :--- | :--- | :--- |
+| `name` | `string` | Your full name. |
+| `role` | `string` | Professional title or tagline. |
+| `bio` | `string` | A short description (supports plain text). |
+| `avatar` | `string` | URL of your profile picture. |
+| `qrcode` | `string` | URL to a QR Code image (e.g., pointing to your vCard or LinkedIn). |
+| `socials` | `array` | List of objects `{ name, url }`. |
+
+### 3\. `content` Object (Expertise)
+
+| Sub-option | Type | Description |
+| :--- | :--- | :--- |
+| `techStack` | `object` | Contains `backend` and `frontend` (arrays of `{name, version}` objects). |
+| `projectGoal` | `string` | Text explaining the project goal or your current vision. |
+| `stats` | `array` | List of objects `{ label, value, description }` to display key metrics. |
 
 -----
 
-## 🛠️ New Structure & Architecture
+## 🛠️ Modern Architecture
 
-The project has been recently refactored to provide a modern and robust development experience:
+The project has been refactored to provide a robust development experience:
 
   * **TypeScript**: For typed and secure code.
   * **Vite**: For an ultra-fast and optimized build process.
@@ -92,7 +125,3 @@ Distributed under the MIT License. See `LICENSE` for more information.
 -----
 
 **Created with ❤️ by [Kouya Tosten](https://github.com/Tostenn)**
-
------
-
-Everything is now ready for your English-speaking users and potential contributors\! Since you're mentioning a separate guide for contributors, would you like me to help you draft that **DEVELOPMENT.md** file as well?
