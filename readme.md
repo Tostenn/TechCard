@@ -98,7 +98,7 @@ The project has been refactored to provide a robust development experience:
 
 > [\!IMPORTANT]
 > **Want to help develop TechCard?**
-> We have implemented detailed technical documentation for contributors. Check out our **[Contribution & Architecture Guide](https://www.google.com/search?q=./docs/DEVELOPMENT.md)** to learn how to clone, test, and propose new themes.
+> We have implemented detailed technical documentation for contributors. Check out our **[Contribution & Architecture Guide](/docs/DEVELOPMENT.md)** to learn how to clone, test, and propose new themes.
 
 -----
 
