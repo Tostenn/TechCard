@@ -520,7 +520,7 @@ class TechCard {
         });
         avatarImg.loading = "lazy";
 
-        const info = this.makeElement(header, "div", "flex flex-col min-w-0 flex-1 justify-center items-center");
+        const info = this.makeElement(header, "div", "info-user");
 
         const topline = this.makeElement(info, "div", "user-topline");
 
@@ -548,7 +548,7 @@ class TechCard {
             "aria-label": "Sections du profil",
         });
 
-        const tabStack = this.makeElement(tabsWrap, "button", "tab-btn tab-btn--active flex items-center gap-2", {
+        const tabStack = this.makeElement(tabsWrap, "button", "tab-btn  flex items-center gap-2", {
             type: "button",
             "data-tab": "stack",
             "aria-selected": "true",
@@ -561,7 +561,7 @@ class TechCard {
         <span>Stack</span>
     `;
 
-        const tabGoal = this.makeElement(tabsWrap, "button", "tab-btn flex items-center gap-2", {
+        const tabGoal = this.makeElement(tabsWrap, "button", "tab-btn tab-btn--active flex items-center gap-2", {
             type: "button",
             "data-tab": "objectif",
             "aria-selected": "false",
@@ -697,7 +697,7 @@ class TechCard {
         }
 
         // Onglet actif par défaut
-        this.activateCardTab(section, "stack");
+        this.activateCardTab(section, "objectif");
         this.bindCardTabs(section);
 
         return section;

@@ -206,6 +206,9 @@
   .card-header {
     @apply flex flex-col gap-5 p-5 sm:flex-row sm:p-6 items-center justify-center;
   }
+  .card-header .info-user {
+    @apply min-w-0 flex-1 justify-center flex flex-col items-center gap-1 sm:items-start;
+  }
 
   .avatar-wrap {
     @apply shrink-0 overflow-hidden rounded-full border p-1 shadow-sm;
