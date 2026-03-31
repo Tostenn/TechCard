@@ -498,45 +498,82 @@
       }
     </script>
 
-    <script src="js/techcard.js"></script>
+    <script src="build/techcard.js"></script>
     <script>
       // Global Instance for Demo
-      const myCard = new window.TechCard({
-        card: "solo",
-        theme: "light",
-        user: {
-          name: "Kouya Tosten",
-          role: "Full-Stack Developer | AI & Automation",
-          bio: "Developer passionate about Laravel, React, and software engineering. I build tools to simplify the web.",
-          avatar:
-            "https://emploirapide.net/static/photos/471c489e-7570-4336-8241-f68e871ff2c9_photo.jpg",
-          qrcode:
-            "https://upload.wikimedia.org/wikipedia/commons/d/d0/QR_code_for_mobile_English_Wikipedia.svg",
-          social_long: true,
-          socials: [
-            { name: "GitHub", url: "https://github.com/Tostenn" },
-            {
-              name: "LinkedIn",
-              url: "https://www.linkedin.com/in/tosten-kouya/",
-            },
-          ],
-        },
-        content: {
-          techStack: {
-            frontend: [
-              { name: "javascript", version: "ES14" },
-              { name: "Tailwind", version: "4.0" },
+      window.onload = () => {
+        const myCard = new window.TechCard({
+          card: "solo",
+          theme: "light",
+          user: {
+            name: "Kouya Tosten",
+            role: "Full-Stack Developer | AI & Automation",
+            bio: "Developer passionate about Laravel, React, and software engineering. I build tools to simplify the web.",
+            avatar:
+              "https://emploirapide.net/static/photos/471c489e-7570-4336-8241-f68e871ff2c9_photo.jpg",
+            qrcode:
+              "https://upload.wikimedia.org/wikipedia/commons/d/d0/QR_code_for_mobile_English_Wikipedia.svg",
+            social_long: true,
+            socials: [
+              { name: "GitHub", url: "https://github.com/Tostenn" },
+              {
+                name: "LinkedIn",
+                url: "https://www.linkedin.com/in/tosten-kouya/",
+              },
             ],
           },
-          projectGoal:
-            "TechCard aims to provide an instant and isolated professional showcase for developers wanting to leave their mark on their projects.",
-        },
-      });
+          content: {
+            techStack: {
+              frontend: [
+                { name: "javascript", version: "ES14" },
+                { name: "Tailwind", version: "4.0" },
+              ],
+            },
+            projectGoal:
+              "TechCard aims to provide an instant and isolated professional showcase for developers wanting to leave their mark on their projects.",
+          },
+        });
 
-      myCard.open();
-      function launchDemo() {
         myCard.open();
-      }
+        function launchDemo() {
+          myCard.open();
+        }
+      };
     </script>
+    <!-- <script src="./build/techcard.umd.js"></script>
+
+    <script>
+      // Utilise DOMContentLoaded, c'est plus fiable que onload
+      document.addEventListener("DOMContentLoaded", () => {
+        try {
+          // On vérifie où se trouve la classe (évite l'erreur de constructor)
+          const Library = window.TechCard;
+          const TechCardClass = Library.TechCard || Library.default || Library;
+
+          if (typeof TechCardClass !== "function") {
+            throw new Error(
+              "La classe TechCard n'a pas pu être trouvée dans l'objet global.",
+            );
+          }
+
+          const myCard = new TechCardClass({
+            theme: "dark",
+            creditsText: "Propulsé par TechCard",
+            user: {
+              name: "Tosten Kouya",
+              role: "Full-Stack Developer",
+              avatar: "https://votre-image.jpg",
+              socials: [
+                { name: "github", url: "https://github.com/votre-profil" },
+              ],
+            },
+          });
+
+          console.log("✅ TechCard initialisée avec succès !");
+        } catch (e) {
+          console.error("❌ Erreur TechCard :", e.message);
+        }
+      });
+    </script> -->
   </body>
 </html>
