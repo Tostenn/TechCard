@@ -37,12 +37,11 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           
-          # On force l'ajout au cas où dist/ est dans le .gitignore
-          git add -f dist/ 
-          
-          if [ -n "$(git status --porcelain)" ]; then
+          git add -f dist/
+          # On vérifie s'il y a des changements STAGÉS (dans l'index)
+          if git diff --cached --quiet; then
+            echo "No changes in dist to commit"
+          else
             git commit -m "build: update production files (.js, .mjs) [skip ci]"
             git push origin main
-          else
-            echo "No changes in dist to commit"
           fi
