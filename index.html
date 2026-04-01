@@ -92,7 +92,7 @@
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <button
-          onclick="launchDemo()"
+          id="demo-btn"
           class="bg-white text-slate-950 px-8 py-4 rounded-xl font-bold hover:bg-slate-200 transition-all cursor-pointer"
         >
           View Demo (Ctrl + Alt + D)
@@ -498,13 +498,14 @@
       }
     </script>
 
-    <script src="build/techcard.js"></script>
+    <!-- <script src="build/techcard.js"></script> -->
+     <script type="module" src="/src/index.ts"></script>
     <script>
       // Global Instance for Demo
       window.onload = () => {
         const myCard = new window.TechCard({
           card: "solo",
-          theme: "light",
+          // theme: "light",
           user: {
             name: "Kouya Tosten",
             role: "Full-Stack Developer | AI & Automation",
@@ -535,9 +536,12 @@
         });
 
         myCard.open();
-        function launchDemo() {
+        
+        // For demo purposes: open the card when clicking the button
+        document.getElementById("demo-btn").addEventListener("click", () => {
           myCard.open();
-        }
+        });
+
       };
     </script>
     <!-- <script src="./build/techcard.umd.js"></script>

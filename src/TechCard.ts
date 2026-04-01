@@ -1,18 +1,41 @@
 import { TechCardOptions } from "./types";
 import { CardSoloMini } from "./components/CardSoloMini";
 import { CardSolo } from "./components/CardSolo";
+import { DEFAULT_OPTIONS } from "./utils/defaults"; // Import des défauts
 
-// On importe le contenu du CSS sous forme de chaîne de caractères
+// Import du CSS
 import tailwindStyles from './index.css?inline';
 
 export class TechCard {
     private static activeInstance: TechCard | null = null;
     private host: HTMLElement | null = null;
     private container: HTMLElement | null = null;
+    private options: TechCardOptions; // On stocke les options fusionnées
 
-    constructor(private options: TechCardOptions) {
+    constructor(userOptions: Partial<TechCardOptions>) {
+        // Fusion des options par défaut avec les options utilisateur
+        this.options = this.validateAndMergeOptions(userOptions);
+        
         TechCard.activeInstance = this;
         this.init();
+    }
+
+    /**
+     * Fusionne les options et s'assure que les objets imbriqués (user) 
+     * ne sont pas perdus.
+     */
+    private validateAndMergeOptions(userOptions: Partial<TechCardOptions>): TechCardOptions {
+        return {
+            ...DEFAULT_OPTIONS,
+            ...userOptions,
+            user: {
+                ...DEFAULT_OPTIONS.user,
+                ...(userOptions.user || {}),
+                socials: Array.isArray(userOptions.user?.socials) 
+                    ? userOptions.user.socials 
+                    : DEFAULT_OPTIONS.user?.socials || []
+            }
+        } as TechCardOptions;
     }
 
     private init() {
@@ -25,33 +48,38 @@ export class TechCard {
     }
 
     private createOverlay() {
-        // 1. Création du Host (l'élément qui porte le Shadow DOM)
         this.host = document.createElement("div");
         this.host.id = "tech-card-overlay";
-        this.host.style.display = "none"; // On utilise style.display pour un contrôle total
+        this.host.style.display = "none";
+        this.host.setAttribute("data-theme", this.options.theme); 
         
-        // On attache le Shadow DOM
         const shadow = this.host.attachShadow({ mode: "open" });
 
-        // 2. Injection du CSS Tailwind (La "Magie" Vite)
         const styleTag = document.createElement("style");
         styleTag.textContent = tailwindStyles;
         shadow.appendChild(styleTag);
-
-        // 3. Création du Container principal
         this.container = document.createElement("div");
-        // Ajout dynamique du thème pour isoler les styles si nécessaire
-        this.container.className = `signature-overlay techcard-theme-${this.options.theme || 'dark'}`;
-        shadow.appendChild(this.container);
 
-        // 4. Sélection du composant de rendu
+        this.container.className = `signature-overlay`;
+        shadow.appendChild(this.container);
+        this.container.onclick = () => this.close()
+
+        // Bouton de fermeture
+        const closeBtn = document.createElement("button");
+        closeBtn.className = "close-btn";
+        closeBtn.innerHTML = "✕"; 
+        closeBtn.onclick = () => this.close();
+        this.container.appendChild(closeBtn);
+
+        // Sélection du composant (basée sur les options fusionnées)
         const cardRenderer = this.options.card === "solo-mini" 
             ? new CardSoloMini(this.options) 
-            : new CardSolo(this.options); // À remplacer par CardSolo plus tard
+            : new CardSolo(this.options);
 
-        cardRenderer.render(this.container);
-
-        // 5. Injection dans le DOM réel
+        const wrapper = cardRenderer.render(this.container);
+        wrapper.addEventListener("click", (e) => {
+            e.stopPropagation();
+        });
         document.body.appendChild(this.host);
     }
 
