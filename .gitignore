@@ -1,6 +1,7 @@
 node_modules/
-build/css/
-build/images/
-build/src/
+build/
+dist/index.html
+dist/src
+dist/images
 
 log.txt
