@@ -1,8 +1,8 @@
 {
-  "name": "devcard",
+  "name": "techcard",
   "version": "1.0.0",
   "description": "**TechCard** is an elegant, ultra-lightweight, and highly customizable profile widget designed to be integrated into any website with a single line of code.",
-  "main": "tailwind.config.js",
+  "main": "src/index.ts",
   "directories": {
     "test": "tests"
   },
