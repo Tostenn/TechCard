@@ -1,7 +1,5 @@
 node_modules/
+.DS_Store
+dist/
 build/
-dist/index.html
-dist/src
-dist/images
-
-log.txt
+*.local
