@@ -4,6 +4,9 @@ on:
   push:
     branches: [ doc ] # Déclenchement sur ta branche de travail
 
+permissions:
+  contents: write # Crucial pour permettre à l'action de pousser sur gh-pages
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -11,13 +14,20 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
 
+      - name: Setup Node ⚙️
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
       - name: Install and Build 🏗️
         run: |
           npm install
-          npm run build:site
+          npm run build # Génère /build et /dist
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: build 
+          folder: build # On déploie le dossier build
           branch: gh-pages
+          clean: true # Nettoie la branche de destination
