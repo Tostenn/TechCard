@@ -6,9 +6,11 @@
   "directories": {
     "test": "tests"
   },
-  "scripts": {
+"scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "npm run build:site && npm run build:lib",
+    "build:site": "tsc && vite build --outDir build --emptyOutDir",
+    "build:lib": "tsc && vite build --outDir dist --emptyOutDir",
     "preview": "vite preview"
   },
   "repository": {

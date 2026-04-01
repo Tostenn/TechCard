@@ -2,26 +2,35 @@ import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
 import { resolve } from "path";
 
-export default defineConfig({
-  build: {
-    lib: {
-      entry: resolve(__dirname, "src/index.ts"),
-      name: "TechCard",
-      // On utilise une fonction pour définir le nom du fichier
-      fileName: (format) => {
-        if (format === "umd") return `techcard.js`; // Force .js pour l'UMD
-        return `techcard.mjs`; // Garde .mjs pour l'ESM (standard pour type: module)
+export default defineConfig(({ command, mode }) => {
+  // On vérifie si on est en train de build la lib (via un flag ou le mode)
+  const isLib = mode === 'production'; 
+
+  return {
+    base: '/TechCard/',
+    build: {
+      // Configuration de la Librairie (pour le CDN)
+      lib: {
+        entry: resolve(__dirname, "src/index.ts"),
+        name: "TechCard",
+        fileName: (format) => (format === "umd" ? `techcard.js` : `techcard.mjs`),
+        formats: ["umd", "es"],
       },
-      formats: ["umd", "es"],
-    },
-    rollupOptions: {
-      output: {
-        exports: "named",
-        extend: true,
+      rollupOptions: {
+        // Si on build le site, on a besoin de l'index.html
+        // Si on build la lib, Rollup s'occupe de l'entry point défini plus haut
+        input: {
+          main: resolve(__dirname, 'index.html'),
+        },
+        output: {
+          exports: "named",
+          extend: true,
+        },
       },
+      minify: "terser",
+      // On laisse la commande npm écraser l'outDir
+      outDir: "dist", 
     },
-    minify: "terser",
-    outDir: "build",
-  },
-  plugins: [dts()],
+    plugins: [dts()],
+  };
 });
