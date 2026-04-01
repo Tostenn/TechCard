@@ -3,8 +3,6 @@ import dts from "vite-plugin-dts";
 import { resolve } from "path";
 
 export default defineConfig(({ command, mode }) => {
-  // On vérifie si on est en train de build la lib (via un flag ou le mode)
-  const isLib = mode === 'production'; 
 
   return {
     base: '/TechCard/',

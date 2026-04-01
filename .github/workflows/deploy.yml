@@ -5,7 +5,7 @@ on:
     branches: [ doc ] # Déclenchement sur ta branche de travail
 
 permissions:
-  contents: write # Crucial pour permettre à l'action de pousser sur gh-pages
+  contents: write # pour permettre à l'action de pousser sur gh-pages
 
 jobs:
   build-and-deploy:
@@ -23,7 +23,7 @@ jobs:
       - name: Install and Build 🏗️
         run: |
           npm install
-          npm run build # Génère /build et /dist
+          npm run build:site
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
