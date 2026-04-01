@@ -1,54 +1,51 @@
-# ⚡ TechCard
+# ⚡ TechCard v1.2.x
 
 **TechCard** is an elegant, ultra-lightweight, and highly customizable profile widget designed to be integrated into any website with a single line of code.
 
 By leveraging **Shadow DOM**, TechCard remains completely isolated from the host site's CSS, ensuring a perfect render regardless of your framework or existing stylesheets.
 
-**Live Demo:** [TechCard Live](https://tostenn.github.io/TechCard/)
+**Live Demo:** [https://tostenn.github.io/TechCard/](https://tostenn.github.io/TechCard/)
 
------
+---
 
 ## ⌨️ Magic Shortcut
 
-Want to see the magic instantly? Once integrated, just hit:
+Once integrated, use this shortcut to interact with the widget:
+* **`Ctrl + Alt + D`**: Instantly open or close the widget.
 
-  * **`Ctrl + Alt + D`**: Instantly open or close the widget.
-
-> **Why "D"?** Because for a **D**eveloper, a great **D**emo should always be just one **D**ynamic keystroke away\! 🚀
-
------
+---
 
 ## 🚀 Quick Start
 
-Choose the method that best fits your project:
-
-### 1\. Via CDN (Standard Usage)
-
-Ideal for quick integration without compilation. Simply add this script tag before the end of your `</body>`:
+### 1. Via CDN (Standard Usage)
+Ideal for quick integration without compilation. Add this script tag before the end of your `</body>`:
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/Tostenn/TechCard/build/techcard.js"></script>
+<script src="[https://cdn.jsdelivr.net/gh/Tostenn/TechCard/dist/techcard.js](https://cdn.jsdelivr.net/gh/Tostenn/TechCard/dist/techcard.js)"></script>
 
 <script>
   window.onload = () => {
-    new window.TechCard({
+    const card = new window.TechCard({
       theme: "dark",
       user: {
-        name: "Kouya Tosten",
+        name: "Your Name",
         role: "Full-Stack Developer",
-        avatar: "your-photo.jpg"
+        avatar: "[https://your-image-url.jpg](https://your-image-url.jpg)"
       }
     });
+    
+    // The card opens via shortcut, or you can force open it here:
+    // card.open(); 
   }
 </script>
-```
+````
 
 ### 2\. Via ESM (Modern Modules)
 
 If you are working with modern JavaScript modules:
 
 ```javascript
-import TechCard from 'https://cdn.jsdelivr.net/gh/Tostenn/TechCard/build/techcard.mjs';
+import TechCard from '[https://cdn.jsdelivr.net/gh/Tostenn/TechCard/dist/techcard.mjs](https://cdn.jsdelivr.net/gh/Tostenn/TechCard/dist/techcard.mjs)';
 
 const card = new TechCard({ /* options */ });
 ```
@@ -57,13 +54,11 @@ const card = new TechCard({ /* options */ });
 
 ## ⚙️ Full Configuration
 
-TechCard is built for flexibility. Below are all the available options for the `option` object:
-
-### 1\. Base Parameters
+### 1\. Base Settings
 
 | Option | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
-| `card` | `string` | `"solo-mini"` | Card format (`"solo"` for full, `"solo-mini"` for compact). |
+| `card` | `string` | `"solo-mini"` | Card format (`"solo"` or `"solo-mini"`). |
 | `theme` | `string` | `"dark"` | Visual theme (`"dark"` or `"light"`). |
 | `creditsText` | `string` | `"Powered by"` | Text displayed at the bottom of the card. |
 
@@ -72,29 +67,30 @@ TechCard is built for flexibility. Below are all the available options for the `
 | Sub-option | Type | Description |
 | :--- | :--- | :--- |
 | `name` | `string` | Your full name. |
-| `role` | `string` | Professional title or tagline. |
-| `bio` | `string` | A short description (supports plain text). |
+| `role` | `string` | Professional title or headline. |
+| `bio` | `string` | A short description (plain text). |
 | `avatar` | `string` | URL of your profile picture. |
-| `qrcode` | `string` | URL to a QR Code image (e.g., pointing to your vCard or LinkedIn). |
+| `qrcode` | `string` | URL to a QR Code (e.g., vCard or LinkedIn). |
+| `social_long`| `boolean`| `true` to display social media links in a wide format. |
 | `socials` | `array` | List of objects `{ name, url }`. |
 
 ### 3\. `content` Object (Expertise)
 
 | Sub-option | Type | Description |
 | :--- | :--- | :--- |
-| `techStack` | `object` | Contains `backend` and `frontend` (arrays of `{name, version}` objects). |
-| `projectGoal` | `string` | Text explaining the project goal or your current vision. |
-| `stats` | `array` | List of objects `{ label, value, description }` to display key metrics. |
+| `techStack` | `object` | Contains `backend` and `frontend` (arrays of `{name, version}`). |
+| `projectGoal` | `string` | Text explaining the project goal or your vision. |
+| `stats` | `array` | List of objects `{ label, value, description }` for key metrics. |
 
 -----
 
 ## 🛠️ Modern Architecture
 
-The project has been refactored to provide a robust development experience:
+The project is built to provide a robust development experience:
 
   * **TypeScript**: For typed and secure code.
   * **Vite**: For an ultra-fast and optimized build process.
-  * **Tailwind CSS**: Dynamically injected into the Shadow DOM for isolated and high-performance styling.
+  * **Tailwind CSS**: Dynamically injected into the Shadow DOM for isolated styling.
 
 > [\!IMPORTANT]
 > **Want to help develop TechCard?**
