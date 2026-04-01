@@ -1,5 +1,6 @@
 node_modules/
 build/css/
 build/images/
+build/src/
 
 log.txt
