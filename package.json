@@ -1,29 +1,40 @@
 {
   "name": "techcard",
   "version": "1.0.0",
-  "type": "module",
-  "main": "./dist/techcard.js",
-  "module": "./dist/techcard.mjs",
-  "types": "./dist/index.d.ts",
-  "unpkg": "./dist/techcard.js",
-  "files": [
-    "dist/*.js",
-    "dist/*.mjs",
-    "dist/*.d.ts"
-  ],
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/techcard.mjs",
-      "require": "./dist/techcard.js"
-    }
+  "description": "**TechCard** is an elegant, ultra-lightweight, and highly customizable profile widget designed to be integrated into any website with a single line of code.",
+  "main": "src/index.ts",
+  "directories": {
+    "test": "tests"
   },
-  "scripts": {
-    "prepublishOnly": "npm run build:lib",
+ "scripts": {
     "dev": "vite",
     "build": "npm run build:lib && npm run build:site",
-    "build:site": "tsc && vite build --outDir build --emptyOutDir",
-    "build:lib": "tsc && vite build --outDir dist --emptyOutDir",
+    "build:site": "vite build --mode website",
+    "build:lib": "vite build --mode library",
     "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tostenn/TechCard.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/Tostenn/TechCard/issues"
+  },
+  "homepage": "https://github.com/Tostenn/TechCard#readme",
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "autoprefixer": "^10.4.27",
+    "postcss": "^8.5.8",
+    "tailwindcss": "^3.4.19",
+    "typescript": "^6.0.2",
+    "vite": "^8.0.3",
+    "vite-plugin-dts": "^4.5.4"
+  },
+  "dependencies": {
+    "terser": "^5.46.1"
   }
 }

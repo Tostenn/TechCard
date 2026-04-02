@@ -1,60 +1,84 @@
-# ⚡ TechCard v1.2.x
+# ⚡ TechCard v1.0.0
 
 **TechCard** is an elegant, ultra-lightweight, and highly customizable profile widget designed to be integrated into any website with a single line of code.
 
-By leveraging **Shadow DOM**, TechCard remains completely isolated from the host site's CSS, ensuring a perfect render regardless of your framework or existing stylesheets.
+Initially built in pure JavaScript, the project has been completely **rewritten in TypeScript** to provide a robust architecture, better maintainability, and a top-tier developer experience. By leveraging **Shadow DOM**, TechCard remains completely isolated from the host site's CSS, ensuring a perfect render regardless of your framework or existing stylesheets.
 
 **Live Demo:** [https://tostenn.github.io/TechCard/](https://tostenn.github.io/TechCard/)
 
----
+-----
 
-## ⌨️ Magic Shortcut
+## 📦 Installation
 
-Once integrated, use this shortcut to interact with the widget:
-* **`Ctrl + Alt + D`**: Instantly open or close the widget.
+### 1\. Via npm (Recommended)
 
----
+For projects using modern bundlers (Vite, Webpack, etc.):
+
+```bash
+npm install techcard
+```
+
+### 2\. Via CDN (Standard Usage)
+
+Ideal for quick integration without a compilation step. Add this script tag before the end of your `</body>`:
+
+  * **ESM Version (Modern):**
+    ```html
+    <script type="module" src="https://cdn.jsdelivr.net/npm/techcard@1.0.0/dist/techcard.mjs"></script>
+    ```
+  * **UMD Version (Classic):**
+    ```html
+    <script src="https://cdn.jsdelivr.net/npm/techcard@1.0.0/dist/techcard.js"></script>
+    ```
+
+-----
 
 ## 🚀 Quick Start
 
-### 1. Via CDN (Standard Usage)
-Ideal for quick integration without compilation. Add this script tag before the end of your `</body>`:
+### Module Usage (TS/JS)
+
+```typescript
+import { TechCard } from 'techcard';
+
+const card = new TechCard({
+  theme: "dark",
+  user: {
+    name: "Tosten Kouya",
+    role: "Full-Stack Developer",
+    avatar: "https://your-image-url.jpg"
+  }
+});
+```
+
+### Classic Usage (HTML)
 
 ```html
-<script src="[https://cdn.jsdelivr.net/gh/Tostenn/TechCard/dist/techcard.js](https://cdn.jsdelivr.net/gh/Tostenn/TechCard/dist/techcard.js)"></script>
-
 <script>
   window.onload = () => {
     const card = new window.TechCard({
-      theme: "dark",
+      card: "solo-mini",
+      theme: "light",
       user: {
         name: "Your Name",
-        role: "Full-Stack Developer",
-        avatar: "[https://your-image-url.jpg](https://your-image-url.jpg)"
+        role: "Developer"
+        avatar: "https://your-image-url.jpg"
       }
     });
-    
-    // The card opens via shortcut, or you can force open it here:
-    // card.open(); 
   }
 </script>
-````
-
-### 2\. Via ESM (Modern Modules)
-
-If you are working with modern JavaScript modules:
-
-```javascript
-import TechCard from '[https://cdn.jsdelivr.net/gh/Tostenn/TechCard/dist/techcard.mjs](https://cdn.jsdelivr.net/gh/Tostenn/TechCard/dist/techcard.mjs)';
-
-const card = new TechCard({ /* options */ });
 ```
 
 -----
 
-## ⚙️ Full Configuration
+## ⌨️ Magic Shortcut
 
-### 1\. Base Settings
+Once integrated, use this shortcut to interact with the widget:
+
+  * **`Ctrl + Alt + D`**: Instantly open or close the widget.
+
+-----
+
+## ⚙️ Full Configuration
 
 | Option | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
@@ -86,38 +110,29 @@ const card = new TechCard({ /* options */ });
 
 ## 🛠️ Modern Architecture
 
-The project is built to provide a robust development experience:
+This v1 release marks a transition to professional standards:
 
-  * **TypeScript**: For typed and secure code.
-  * **Vite**: For an ultra-fast and optimized build process.
-  * **Tailwind CSS**: Dynamically injected into the Shadow DOM for isolated styling.
-
-> [\!IMPORTANT]
-> **Want to help develop TechCard?**
-> We have implemented detailed technical documentation for contributors. Check out our **[Contribution & Architecture Guide](/docs/DEVELOPMENT.md)** to learn how to clone, test, and propose new themes.
+  * **Native TypeScript**: Full typing for perfect autocompletion in your IDE.
+  * **Shadow DOM & Tailwind**: Isolated styles to prevent any conflict with your site.
+  * **Vite & Rollup**: Optimized and lightweight build (under 25kb).
+  * **CDN Ready**: Immediately available via jsDelivr.
 
 -----
 
-## 🤝 Why Contribute?
+## 🤝 Contributing
 
-TechCard is more than just a "one-shot" script. Our goal is to create the ultimate digital signature for developers. We need you to:
+TechCard is now a structured project ready for contributions. We are looking for developers to:
 
-  * **Create New Themes**: Glassmorphism, Retro Terminal, Minimalist.
-  * **Optimize Performance**: Bundle size reduction and Accessibility (A11y).
-  * **Extend Features**: Team Cards system (Multi-profile) and API integrations.
+  * Create new themes (Glassmorphism, Neo-brutalism).
+  * Improve Accessibility (A11y).
+  * Develop the "Team Cards" system.
 
-### How to Help?
-
-1.  Report an anomaly via **[Issues](https://github.com/Tostenn/TechCard/issues)**.
-2.  Propose an improvement via a **Pull Request**.
-3.  Share your ideas for the **Roadmap** (Team Cards, SaaS Platform).
+Check out our **[Architecture Guide](https://www.google.com/search?q=/docs/ARCHITECTURE.md)** to get started.
 
 -----
 
 ## 📄 License
 
-Distributed under the MIT License. See `LICENSE` for more information.
+Distributed under the MIT License.
 
------
-
-**Created with ❤️ by [Kouya Tosten](https://github.com/Tostenn)**
+**Created with ❤️ by [Tosten Kouya](https://github.com/Tostenn)**
