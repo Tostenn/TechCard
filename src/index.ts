@@ -1,4 +1,5 @@
 import { TechCard } from "./TechCard";
+export * from './types'; // Si tu as des interfaces à partager
 
 // Assignation globale immédiate
 if (typeof window !== "undefined") {
