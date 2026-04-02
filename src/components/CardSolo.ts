@@ -39,9 +39,11 @@ export class CardSolo extends BaseCard {
         const { user } = this.options;
         const header = createElement("div", "card-header", {}, parent);
         
-        const avatarWrap = createElement("div", "avatar-wrap", {}, header);
-        createElement("img", "avatar-image", { src: user.avatar, alt: user.name, loading: "lazy" }, avatarWrap);
-
+        if (user.avatar) {
+            const avatarWrap = createElement("div", "avatar-wrap", {}, header);
+            createElement("img", "avatar-image", { src: user.avatar, alt: user.name, loading: "lazy" }, avatarWrap);
+        }
+        
         const info = createElement("div", "info-user", {}, header);
         const topline = createElement("div", "user-topline", {}, info);
         
