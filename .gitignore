@@ -1,10 +1,6 @@
 node_modules/
 .DS_Store
 build/
-
-# Ignorer dist par défaut mais autoriser les fichiers JS pour le CDN
 dist/*
-!dist/techcard.js
-!dist/techcard.mjs
 
 *.local
