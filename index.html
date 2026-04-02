@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TechCard v1.2 | Your TypeScript-powered tech identity</title>
+    <title>TechCard v1.0 | Your TypeScript-powered tech identity</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap");
@@ -26,20 +26,6 @@
         background: #1e293b;
         border-radius: 10px;
       }
-
-      @keyframes scroll {
-        0% {
-          transform: translateX(0);
-        }
-        100% {
-          transform: translateX(-50%);
-        }
-      }
-      .animate-marquee {
-        display: flex;
-        width: 200%;
-        animation: scroll 30s linear infinite;
-      }
     </style>
   </head>
   <body class="bg-slate-950 text-slate-200 selection:bg-purple-500/30">
@@ -48,7 +34,7 @@
         ⚡ Tech<span class="text-blue-500">Card</span>
         <span
           class="text-xs bg-blue-500/20 text-blue-400 px-2 py-1 rounded ml-2"
-          >v1.2.x TS</span
+          >v1.0.0</span
         >
       </div>
       <div class="flex gap-6 items-center">
@@ -56,6 +42,11 @@
           href="https://github.com/Tostenn/TechCard"
           class="hover:text-white transition-colors text-sm"
           >GitHub</a
+        >
+        <a
+          href="https://www.npmjs.com/package/techcard"
+          class="hover:text-white transition-colors text-sm"
+          >npm</a
         >
         <a
           href="#install"
@@ -69,7 +60,7 @@
       <div
         class="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 px-3 py-1 rounded-full text-blue-400 text-xs font-bold mb-6 uppercase tracking-wider"
       >
-        <span>🚀 100% TypeScript Rewrite</span>
+        <span>🚀 Official v1 Production Release</span>
       </div>
       <h1
         class="text-5xl md:text-7xl font-extrabold text-white mb-6 tracking-tight"
@@ -86,12 +77,12 @@
         >
           <code
             class="flex-1 text-left px-4 text-xs md:text-sm text-blue-400 truncate font-mono"
-            >https://cdn.jsdelivr.net/gh/Tostenn/TechCard/dist/techcard.js</code
+            >https://cdn.jsdelivr.net/npm/techcard@1.0.0/dist/techcard.js</code
           >
           <button
             onclick="
               copySimpleText(
-                'https://cdn.jsdelivr.net/gh/Tostenn/TechCard/dist/techcard.js',
+                'https://cdn.jsdelivr.net/npm/techcard@1.0.0/dist/techcard.js',
                 this,
               )
             "
@@ -119,64 +110,6 @@
       </div>
     </header>
 
-    <!-- <section class="relative py-12 bg-slate-950/40">
-      <p
-        class="text-center text-slate-500 text-[10px] uppercase tracking-[0.3em] mb-10 font-bold opacity-80"
-      >
-        Trusted by tech ecosystems
-      </p>
-
-      <div
-        class="relative flex overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]"
-      >
-        <div
-          class="animate-marquee whitespace-nowrap flex items-center gap-16 md:gap-32 px-4"
-        >
-          <span
-            class="text-xl md:text-2xl font-black text-slate-700 hover:text-blue-500/60 transition-colors cursor-default select-none"
-            >DEV.TO</span
-          >
-          <span
-            class="text-xl md:text-2xl font-black text-slate-700 hover:text-blue-500/60 transition-colors cursor-default select-none"
-            >HASHNODE</span
-          >
-          <span
-            class="text-xl md:text-2xl font-black text-slate-700 hover:text-blue-500/60 transition-colors cursor-default select-none"
-            >INDIE_HACKERS</span
-          >
-          <span
-            class="text-xl md:text-2xl font-black text-slate-700 hover:text-blue-500/60 transition-colors cursor-default select-none"
-            >PRODUCT_HUNT</span
-          >
-          <span
-            class="text-xl md:text-2xl font-black text-slate-700 hover:text-blue-500/60 transition-colors cursor-default select-none"
-            >STACK_OVERFLOW</span
-          >
-
-          <span
-            class="text-xl md:text-2xl font-black text-slate-700 hover:text-blue-500/60 transition-colors cursor-default select-none"
-            >DEV.TO</span
-          >
-          <span
-            class="text-xl md:text-2xl font-black text-slate-700 hover:text-blue-500/60 transition-colors cursor-default select-none"
-            >HASHNODE</span
-          >
-          <span
-            class="text-xl md:text-2xl font-black text-slate-700 hover:text-blue-500/60 transition-colors cursor-default select-none"
-            >INDIE_HACKERS</span
-          >
-          <span
-            class="text-xl md:text-2xl font-black text-slate-700 hover:text-blue-500/60 transition-colors cursor-default select-none"
-            >PRODUCT_HUNT</span
-          >
-          <span
-            class="text-xl md:text-2xl font-black text-slate-700 hover:text-blue-500/60 transition-colors cursor-default select-none"
-            >STACK_OVERFLOW</span
-          >
-        </div>
-      </div>
-    </section> -->
-
     <section class="max-w-5xl mx-auto px-6 mb-32">
       <div
         class="relative rounded-2xl overflow-hidden border border-slate-800 bg-slate-900 shadow-2xl"
@@ -189,9 +122,7 @@
             <div class="w-3 h-3 rounded-full bg-amber-500/50"></div>
             <div class="w-3 h-3 rounded-full bg-emerald-500/50"></div>
           </div>
-          <div class="text-xs text-slate-600 font-mono hidden sm:block">
-            techcard_preview.png
-          </div>
+          <div class="text-xs text-slate-600 font-mono">v1.0.0_preview.png</div>
           <div class="w-10"></div>
         </div>
 
@@ -279,176 +210,123 @@
 
     <main id="docs" class="max-w-4xl mx-auto px-6 space-y-32 pb-32">
       <section id="install">
-        <div class="flex items-center gap-4 mb-6">
-          <h2 class="text-3xl font-bold text-white">Quick Installation</h2>
-          <span class="text-xs text-slate-500 font-mono pt-2">v1.2.x</span>
+        <h2 class="text-3xl font-bold text-white mb-8">Installation</h2>
+
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+          <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800">
+            <h3
+              class="text-lg font-bold text-white mb-4 flex items-center gap-2"
+            >
+              <span class="text-blue-500">#</span> Modern (npm)
+            </h3>
+            <div
+              class="relative flex items-center bg-slate-950 p-3 rounded-lg border border-slate-800 font-mono text-sm"
+            >
+              <code class="text-emerald-400">npm install techcard</code>
+              <button
+                onclick="copySimpleText('npm install techcard', this)"
+                class="ml-auto text-slate-500 hover:text-white transition-colors cursor-pointer"
+              >
+                📋
+              </button>
+            </div>
+          </div>
+
+          <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800">
+            <h3
+              class="text-lg font-bold text-white mb-4 flex items-center gap-2"
+            >
+              <span class="text-purple-500">#</span> Simple (CDN)
+            </h3>
+            <div
+              class="relative flex items-center bg-slate-950 p-3 rounded-lg border border-slate-800 font-mono text-sm"
+            >
+              <code class="text-amber-300"
+                >techcard@1.0.0/dist/techcard.js</code
+              >
+              <button
+                onclick="
+                  copySimpleText(
+                    'https://cdn.jsdelivr.net/npm/techcard@1.0.0/dist/techcard.js',
+                    this,
+                  )
+                "
+                class="ml-auto text-slate-500 hover:text-white transition-colors cursor-pointer"
+              >
+                📋
+              </button>
+            </div>
+          </div>
         </div>
-        <p class="text-slate-400 mb-8">
-          Integrate TechCard in seconds. This new version supports
-          **TypeScript** out of the box and is served via a global CDN.
-        </p>
 
-        <div class="relative group">
-          <button
-            onclick="copyCode(this)"
-            class="absolute right-4 top-4 z-10 p-2 rounded-lg bg-slate-800 border border-slate-700 text-slate-400 hover:text-white hover:bg-slate-700 transition-all active:scale-95 cursor-pointer shadow-xl"
-          >
-            <svg
-              id="copy-icon"
-              xmlns="http://www.w3.org/2000/svg"
-              class="w-5 h-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
-              />
-            </svg>
-            <svg
-              id="check-icon"
-              xmlns="http://www.w3.org/2000/svg"
-              class="w-5 h-5 hidden text-emerald-400"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M5 13l4 4L19 7"
-              />
-            </svg>
-          </button>
-
-          <div
-            class="bg-slate-900 rounded-2xl p-6 border border-slate-800 overflow-hidden shadow-inner font-mono text-sm leading-relaxed"
-          >
-            <pre
-              id="code-block"
-              class="text-blue-400 overflow-x-auto custom-scrollbar"
-            ><span class="text-slate-500">&lt;!-- Import TechCard --&gt;</span>
-&lt;<span class="text-emerald-400">script</span> <span class="text-purple-400">src</span>=<span class="text-amber-300">"https://cdn.jsdelivr.net/gh/Tostenn/TechCard/dist/techcard.js"</span>&gt;&lt;/<span class="text-emerald-400">script</span>&gt;
+        <div
+          class="relative bg-slate-900 rounded-2xl p-6 border border-slate-800 font-mono text-sm shadow-inner"
+        >
+          <pre class="text-blue-400 overflow-x-auto custom-scrollbar">
+<span class="text-slate-500">&lt;!-- Usage Example --&gt;</span>
+&lt;<span class="text-emerald-400">script</span> <span class="text-purple-400">src</span>=<span class="text-amber-300">"https://cdn.jsdelivr.net/npm/techcard@1.0.0/dist/techcard.js"</span>&gt;&lt;/<span class="text-emerald-400">script</span>&gt;
 
 &lt;<span class="text-emerald-400">script</span>&gt;
   <span class="text-slate-200">window.onload = () => {</span>
     <span class="text-purple-400">const</span> <span class="text-slate-200">myCard =</span> <span class="text-purple-400">new</span> <span class="text-slate-200">window.TechCard({</span>
       <span class="text-slate-400">card:</span> <span class="text-amber-300">"solo"</span>,
+      <span class="text-slate-400">theme:</span> <span class="text-amber-300">"dark"</span>,
       <span class="text-slate-400">user:</span> {
-        <span class="text-slate-400">name:</span> <span class="text-amber-300">"Your Name"</span>,
-        <span class="text-slate-400">role:</span> <span class="text-amber-300">"Full-Stack Developer"</span>,
-        <span class="text-slate-400">avatar:</span> <span class="text-amber-300">"https://your-image.jpg"</span>
+        <span class="text-slate-400">name:</span> <span class="text-amber-300">"Tosten Kouya"</span>,
+        <span class="text-slate-400">role:</span> <span class="text-amber-300">"Full-Stack Developer"</span>
       }
     <span class="text-slate-200">});</span>
     <span class="text-slate-200">myCard.open();</span>
   <span class="text-slate-200">}</span>
 &lt;/<span class="text-emerald-400">script</span>&gt;</pre>
-          </div>
         </div>
       </section>
 
-      <section>
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 class="text-3xl font-bold text-white mb-6">
-              Fully Customizable
-            </h2>
-            <ul class="space-y-4 text-slate-400">
-              <li class="flex gap-3">
-                <span class="text-blue-500 font-bold">✓</span
-                ><span
-                  ><strong>Themes:</strong> Native Light & Dark support.</span
-                >
-              </li>
-              <li class="flex gap-3">
-                <span class="text-blue-500 font-bold">✓</span
-                ><span
-                  ><strong>Formats:</strong> "Mini" for discretion or "Solo" for
-                  depth.</span
-                >
-              </li>
-              <li class="flex gap-3">
-                <span class="text-blue-500 font-bold">✓</span
-                ><span
-                  ><strong>Performance:</strong> Zero dependencies, lightweight
-                  runtime.</span
-                >
-              </li>
-            </ul>
-          </div>
-          <div
-            class="bg-slate-900/50 p-10 rounded-3xl border border-slate-800 shadow-xl"
-          >
-            <h3
-              class="text-xl text-white font-semibold mb-6 italic leading-relaxed"
-            >
-              "The goal is to facilitate contact and networking directly from
-              your projects."
-            </h3>
-            <div class="flex items-center gap-4">
-              <img
-                src="https://emploirapide.net/static/photos/471c489e-7570-4336-8241-f68e871ff2c9_photo.jpg"
-                class="w-12 h-12 rounded-full grayscale border border-slate-700"
-                alt="Kouya Tosten"
-              />
-              <div>
-                <p class="text-white font-bold">Kouya Tosten</p>
-                <p class="text-xs text-slate-500">Creator of TechCard</p>
-              </div>
+      <section class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl font-bold text-white mb-6">Why v1.0.0?</h2>
+          <ul class="space-y-4 text-slate-400">
+            <li class="flex gap-3">
+              <span class="text-blue-500 font-bold">✓</span
+              ><span
+                ><strong>TypeScript Rewrite:</strong> Fully typed for a safer
+                development process.</span
+              >
+            </li>
+            <li class="flex gap-3">
+              <span class="text-blue-500 font-bold">✓</span
+              ><span
+                ><strong>Shadow DOM:</strong> Total CSS isolation. No conflicts
+                with your site styles.</span
+              >
+            </li>
+            <li class="flex gap-3">
+              <span class="text-blue-500 font-bold">✓</span
+              ><span
+                ><strong>npm Distribution:</strong> Easy to version and manage
+                in modern workflows.</span
+              >
+            </li>
+          </ul>
+        </div>
+        <div
+          class="bg-blue-600/10 p-10 rounded-3xl border border-blue-500/20 shadow-xl"
+        >
+          <p class="text-white font-semibold mb-6 italic leading-relaxed">
+            "TechCard is built to provide an instant, elegant professional
+            showcase for developers, accessible by anyone in seconds."
+          </p>
+          <div class="flex items-center gap-4">
+            <img
+              src="https://emploirapide.net/static/photos/471c489e-7570-4336-8241-f68e871ff2c9_photo.jpg"
+              class="w-12 h-12 rounded-full grayscale border border-slate-700"
+              alt="Kouya Tosten"
+            />
+            <div>
+              <p class="text-white font-bold">Tosten Kouya</p>
+              <p class="text-xs text-slate-500">Creator of TechCard</p>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section>
-        <h2
-          class="text-center text-slate-500 text-sm uppercase tracking-[0.2em] mb-12"
-        >
-          Developers using TechCard
-        </h2>
-        <div
-          class="flex flex-wrap justify-center gap-12 opacity-60 grayscale hover:grayscale-0 transition-all duration-500"
-        >
-          <span class="font-black text-2xl text-white hover:text-blue-500"
-            >Portfolio.dev</span
-          >
-          <span class="font-black text-2xl text-white hover:text-blue-500"
-            >SaaS-Starter</span
-          >
-          <span class="font-black text-2xl text-white hover:text-blue-500"
-            >OpenDocs</span
-          >
-          <span class="font-black text-2xl text-white hover:text-blue-500"
-            >DevBlog</span
-          >
-        </div>
-      </section>
-
-      <section
-        class="text-center bg-blue-600/10 border border-blue-500/20 py-16 rounded-3xl"
-      >
-        <h2 class="text-3xl font-bold text-white mb-4">
-          Open Source & Collaborative
-        </h2>
-        <p class="text-slate-400 mb-8 max-w-lg mx-auto">
-          Help us build the future of developer networking. Found a bug? Have an
-          idea? Pull Requests are always welcome.
-        </p>
-        <div class="flex gap-6 justify-center items-center">
-          <a
-            href="https://github.com/Tostenn/TechCard"
-            class="text-white bg-blue-600 px-6 py-3 rounded-lg font-bold hover:bg-blue-500 transition-all"
-            >View Repository</a
-          >
-          <a
-            href="https://github.com/Tostenn/TechCard/issues"
-            class="text-white bg-blue-600 px-6 py-3 rounded-lg font-bold hover:bg-blue-500 transition-all"
-            >Contribute</a
-          >
         </div>
       </section>
     </main>
@@ -461,7 +339,7 @@
         href="https://github.com/Tostenn"
         class="text-slate-300 hover:text-white transition-colors"
         >Tostenn</a
-      >. Rebuilt in TypeScript for the community.
+      >. Published on npm. MIT License.
     </footer>
 
     <script>
@@ -531,35 +409,14 @@
       }
 
       function copySimpleText(text, button) {
-        copyAction(text, button);
-      }
-
-      function copyAction(text, button) {
-        const copyIcon = button.querySelector("#copy-icon");
-        const checkIcon = button.querySelector("#check-icon");
-        const originalText = button.innerText;
-
+        const originalText = button.innerHTML;
         navigator.clipboard.writeText(text).then(() => {
-          if (copyIcon) {
-            copyIcon.classList.add("hidden");
-            checkIcon.classList.remove("hidden");
-            button.classList.add("border-emerald-500/50", "bg-emerald-500/10");
-            setTimeout(() => {
-              copyIcon.classList.remove("hidden");
-              checkIcon.classList.add("hidden");
-              button.classList.remove(
-                "border-emerald-500/50",
-                "bg-emerald-500/10",
-              );
-            }, 2000);
-          } else {
-            button.innerText = "Copied!";
-            button.classList.add("bg-emerald-600", "text-white");
-            setTimeout(() => {
-              button.innerText = originalText;
-              button.classList.remove("bg-emerald-600", "text-white");
-            }, 2000);
-          }
+          button.innerText = "Copied!";
+          button.classList.add("bg-emerald-600", "text-white");
+          setTimeout(() => {
+            button.innerHTML = originalText;
+            button.classList.remove("bg-emerald-600", "text-white");
+          }, 2000);
         });
       }
     </script>
@@ -570,12 +427,11 @@
         const myCard = new window.TechCard({
           card: "solo-mini",
           user: {
-            name: "Kouya Tosten",
-            role: "Full-Stack Developer | AI & Automation",
+            name: "Tosten Kouya",
+            role: "Full-Stack Developer",
             bio: "Developer passionate about Laravel, React, and software engineering. I build tools to simplify the web.",
             avatar:
               "https://emploirapide.net/static/photos/471c489e-7570-4336-8241-f68e871ff2c9_photo.jpg",
-            social_long: true,
             socials: [
               { name: "GitHub", url: "https://github.com/Tostenn" },
               {
@@ -584,19 +440,10 @@
               },
             ],
           },
-          content: {
-            techStack: {
-              frontend: [
-                { name: "javascript", version: "ES14" },
-                { name: "Tailwind", version: "4.0" },
-              ],
-            },
-            projectGoal:
-              "TechCard aims to provide an instant professional showcase for developers on their projects.",
-          },
         });
 
         myCard.open();
+
         document
           .getElementById("demo-btn")
           .addEventListener("click", () => myCard.open());
