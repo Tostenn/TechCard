@@ -1,4 +1,4 @@
-# ⚡ TechCard v1.0.0
+# ⚡ TechCard v1.0.2
 
 **TechCard** is an elegant, ultra-lightweight, and highly customizable profile widget designed to be integrated into any website with a single line of code.
 
@@ -24,11 +24,11 @@ Ideal for quick integration without a compilation step. Add this script tag befo
 
   * **ESM Version (Modern):**
     ```html
-    <script type="module" src="https://cdn.jsdelivr.net/npm/techcard@1.0.0/dist/techcard.mjs"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/techcard@1.0.2/dist/techcard.mjs"></script>
     ```
   * **UMD Version (Classic):**
     ```html
-    <script src="https://cdn.jsdelivr.net/npm/techcard@1.0.0/dist/techcard.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/techcard@1.0.2/dist/techcard.js"></script>
     ```
 
 -----
