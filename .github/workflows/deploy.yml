@@ -20,14 +20,15 @@ jobs:
           node-version: 20
           cache: 'npm'
 
-      - name: Install and Build 🏗️
-        run: |
-          npm install
-          npm run build:site
+      - name: Install Dependencies 📦
+        run: npm ci
+
+      - name: Build Site 🏗️
+        run: npx vite build --outDir build --emptyOutDir 
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: build # On déploie le dossier build
+          folder: build 
           branch: gh-pages
-          clean: true # Nettoie la branche de destination
+          clean: true

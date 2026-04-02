@@ -19,11 +19,10 @@
     }
   },
   "scripts": {
-    "prepublishOnly": "npm run build:lib",
     "dev": "vite",
     "build": "npm run build:lib && npm run build:site",
-    "build:site": "tsc && vite build --outDir build --emptyOutDir",
-    "build:lib": "tsc && vite build --outDir dist --emptyOutDir",
+    "build:site": "vite build --mode website",
+    "build:lib": "vite build --mode library",
     "preview": "vite preview"
-  }
+}
 }
