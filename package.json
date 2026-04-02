@@ -2,7 +2,8 @@
   "name": "techcard",
   "version": "1.0.0",
   "type": "module",
-  "main": "./dist/techcard.js",
+  "description": "**TechCard** is an elegant, ultra-lightweight, and highly customizable profile widget designed to be integrated into any website with a single line of code.",
+  "main": "src/index.ts",
   "module": "./dist/techcard.mjs",
   "types": "./dist/index.d.ts",
   "unpkg": "./dist/techcard.js",
@@ -24,5 +25,29 @@
     "build:site": "vite build --mode website",
     "build:lib": "vite build --mode library",
     "preview": "vite preview"
-}
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tostenn/TechCard.git"
+  },
+  "keywords": [
+    "widget",
+    "profile",
+    "ui-component",
+    "typescript"
+  ],
+  "author": "Tosten Kouya",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.4.0",
+    "vite": "^5.2.0",
+    "vite-plugin-dts": "^3.9.1"
+  },
+  "dependencies": {
+    "terser": "^5.46.1"
+  }
 }
