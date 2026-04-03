@@ -251,9 +251,54 @@
     </section>
 
     <main id="docs" class="max-w-4xl mx-auto px-6 space-y-32 pb-32">
+      <section id="vision" class="text-center">
+        <h2 class="text-3xl font-bold text-white mb-6">Vision & Purpose</h2>
+        <p class="text-slate-400 max-w-2xl mx-auto mb-12">
+          TechCard is designed to bridge the gap between a developer's work and
+          their professional identity.
+        </p>
+        <div class="grid md:grid-cols-3 gap-6 text-left">
+          <div
+            class="bg-slate-900/50 p-6 rounded-2xl border border-slate-800 hover:border-slate-600 transition-colors"
+          >
+            <div class="text-2xl mb-3">🖋️</div>
+            <h3 class="text-lg font-bold text-white mb-2">
+              The Creator's Signature
+            </h3>
+            <p class="text-sm text-slate-400">
+              Just as an architect signs their plans, leave a subtle, elegant
+              footprint on every project you build.
+            </p>
+          </div>
+          <div
+            class="bg-slate-900/50 p-6 rounded-2xl border border-slate-800 hover:border-slate-600 transition-colors"
+          >
+            <div class="text-2xl mb-3">🛠️</div>
+            <h3 class="text-lg font-bold text-white mb-2">
+              Technical Transparency
+            </h3>
+            <p class="text-sm text-slate-400">
+              Enable peers to instantly see the "who" and "how" behind a
+              website, showcasing your stack.
+            </p>
+          </div>
+          <div
+            class="bg-slate-900/50 p-6 rounded-2xl border border-slate-800 hover:border-slate-600 transition-colors"
+          >
+            <div class="text-2xl mb-3">⚡</div>
+            <h3 class="text-lg font-bold text-white mb-2">
+              Frictionless Connectivity
+            </h3>
+            <p class="text-sm text-slate-400">
+              Reduce the distance to opportunities by making your profiles
+              accessible in one click.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <section id="install">
         <h2 class="text-3xl font-bold text-white mb-8">Installation</h2>
-
         <div class="grid md:grid-cols-2 gap-8 mb-12">
           <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800">
             <h3
@@ -300,27 +345,254 @@
             </div>
           </div>
         </div>
+      </section>
 
+      <section id="configuration">
         <div
-          class="relative bg-slate-900 rounded-2xl p-6 border border-slate-800 font-mono text-sm shadow-inner"
+          class="mb-8 flex justify-between items-end border-b border-slate-800 pb-4"
         >
-          <pre class="text-blue-400 overflow-x-auto custom-scrollbar">
-<span class="text-slate-500">&lt;!-- Usage Example --&gt;</span>
-&lt;<span class="text-emerald-400">script</span> <span class="text-purple-400">src</span>=<span class="text-amber-300">"https://cdn.jsdelivr.net/npm/techcard@1.0.2/dist/techcard.js"</span>&gt;&lt;/<span class="text-emerald-400">script</span>&gt;
+          <div>
+            <h2 class="text-3xl font-bold text-white mb-2">
+              Configuration API
+            </h2>
+            <p class="text-slate-400">
+              Customize everything through the init object. Here is the complete
+              payload.
+            </p>
+          </div>
+        </div>
 
-&lt;<span class="text-emerald-400">script</span>&gt;
-  <span class="text-slate-200">window.onload = () => {</span>
-    <span class="text-purple-400">const</span> <span class="text-slate-200">myCard =</span> <span class="text-purple-400">new</span> <span class="text-slate-200">window.TechCard({</span>
-      <span class="text-slate-400">card:</span> <span class="text-amber-300">"solo"</span>,
-      <span class="text-slate-400">theme:</span> <span class="text-amber-300">"dark"</span>,
-      <span class="text-slate-400">user:</span> {
-        <span class="text-slate-400">name:</span> <span class="text-amber-300">"Tosten Kouya"</span>,
-        <span class="text-slate-400">role:</span> <span class="text-amber-300">"Full-Stack Developer"</span>
+        <div class="grid lg:grid-cols-2 gap-8">
+          <div
+            class="bg-slate-900 rounded-2xl p-6 border border-slate-800 shadow-inner relative group"
+          >
+            <button
+              onclick="copyCode(this)"
+              class="absolute top-4 right-4 text-slate-500 hover:text-white text-sm bg-slate-800 px-3 py-1 rounded transition-colors opacity-0 group-hover:opacity-100"
+            >
+              Copy Code
+            </button>
+            <pre
+              id="code-block"
+              class="text-sm font-mono overflow-x-auto custom-scrollbar h-[500px]"
+            >
+<span class="text-slate-400">new window.TechCard({</span>
+  <span class="text-slate-500">// 1. Global Options</span>
+  <span class="text-blue-400">card:</span> <span class="text-amber-300">"solo"</span>, <span class="text-slate-500">// "solo" | "solo-mini"</span>
+  <span class="text-blue-400">theme:</span> <span class="text-amber-300">"dark"</span>, <span class="text-slate-500">// "dark" | "light"</span>
+  <span class="text-blue-400">creditsText:</span> <span class="text-amber-300">"Developed by"</span>,
+
+  <span class="text-slate-500">// 2. Profile Details</span>
+  <span class="text-blue-400">user:</span> {
+    <span class="text-blue-400">name:</span> <span class="text-amber-300">"Kouya Tosten"</span>,
+    <span class="text-blue-400">role:</span> <span class="text-amber-300">"Full-Stack Dev | AI & Auto"</span>,
+    <span class="text-blue-400">bio:</span> <span class="text-amber-300">"Full-stack dev exploring Laravel/React."</span>,
+    <span class="text-blue-400">avatar:</span> <span class="text-amber-300">"https://example.com/me.jpg"</span>,
+    <span class="text-blue-400">qrcode:</span> <span class="text-amber-300">"/imgs/qrcode.png"</span>,
+    <span class="text-blue-400">social_long:</span> <span class="text-purple-400">false</span>,
+    <span class="text-blue-400">socials:</span> [
+      { <span class="text-blue-400">name:</span> <span class="text-amber-300">"GitHub"</span>, <span class="text-blue-400">url:</span> <span class="text-amber-300">"https://github.com/Tostenn"</span> },
+      { <span class="text-blue-400">name:</span> <span class="text-amber-300">"LinkedIn"</span>, <span class="text-blue-400">url:</span> <span class="text-amber-300">"https://linkedin.com"</span> }
+    ]
+  },
+
+  <span class="text-slate-500">// 3. Expertise & Stats</span>
+  <span class="text-blue-400">content:</span> {
+    <span class="text-blue-400">techStack:</span> {
+      <span class="text-blue-400">backend:</span> [
+        { <span class="text-blue-400">name:</span> <span class="text-amber-300">"Laravel"</span>, <span class="text-blue-400">version:</span> <span class="text-amber-300">"9.0"</span> }
+      ],
+      <span class="text-blue-400">frontend:</span> [
+        { <span class="text-blue-400">name:</span> <span class="text-amber-300">"React"</span>, <span class="text-blue-400">version:</span> <span class="text-amber-300">"18.0"</span> }
+      ]
+    },
+    <span class="text-blue-400">projectGoal:</span> <span class="text-amber-300">"## Goal\nExplain your vision in markdown."</span>,
+    <span class="text-blue-400">stats:</span> [
+      {
+        <span class="text-blue-400">label:</span> <span class="text-amber-300">"visitors"</span>,
+        <span class="text-blue-400">value:</span> <span class="text-purple-400">1000</span>,
+        <span class="text-blue-400">description:</span> <span class="text-amber-300">"Total active visitors"</span>
       }
-    <span class="text-slate-200">});</span>
-    <span class="text-slate-200">myCard.open();</span>
-  <span class="text-slate-200">}</span>
-&lt;/<span class="text-emerald-400">script</span>&gt;</pre>
+    ]
+  }
+<span class="text-slate-400">}).open();</span></pre>
+          </div>
+
+          <div
+            class="space-y-6 h-[500px] overflow-y-auto custom-scrollbar pr-4"
+          >
+            <div class="bg-slate-900/40 p-5 rounded-xl border border-slate-800">
+              <h4 class="text-white font-bold mb-2">1. Global Options</h4>
+              <ul class="text-sm text-slate-400 space-y-2">
+                <li>
+                  <code class="text-blue-400">card</code> : Display format. Use
+                  <code class="text-slate-300">"solo"</code> for full profile,
+                  <code class="text-slate-300">"solo-mini"</code> for compact.
+                </li>
+                <li>
+                  <code class="text-blue-400">theme</code> : UI colors.
+                  <code class="text-slate-300">"dark"</code> (default) or
+                  <code class="text-slate-300">"light"</code>.
+                </li>
+                <li>
+                  <code class="text-blue-400">creditsText</code> : Text
+                  displayed at the bottom of your card.
+                </li>
+              </ul>
+            </div>
+
+            <div class="bg-slate-900/40 p-5 rounded-xl border border-slate-800">
+              <h4 class="text-white font-bold mb-2">2. Profile (user)</h4>
+              <ul class="text-sm text-slate-400 space-y-2">
+                <li>
+                  <code class="text-blue-400">name / role / bio</code> :
+                  Standard text fields.
+                </li>
+                <li>
+                  <code class="text-blue-400">avatar</code> : URL to your
+                  picture.
+                </li>
+                <li>
+                  <code class="text-blue-400">qrcode</code> : Link to a
+                  generated QR Code image (e.g. your vCard or website).
+                </li>
+                <li>
+                  <code class="text-blue-400">socials</code> : Array of
+                  <code class="text-slate-300">{ name, url }</code>. Icons are
+                  auto-mapped based on the
+                  <code class="text-slate-300">name</code> string.
+                </li>
+                <li>
+                  <code class="text-blue-400">social_long</code> : Set to
+                  <code class="text-purple-400">true</code> to display large
+                  social buttons.
+                </li>
+              </ul>
+            </div>
+
+            <div class="bg-slate-900/40 p-5 rounded-xl border border-slate-800">
+              <h4 class="text-white font-bold mb-2">3. Content (content)</h4>
+              <ul class="text-sm text-slate-400 space-y-2">
+                <li>
+                  <code class="text-blue-400">techStack</code> : Arrays of
+                  <code class="text-slate-300">{ name, version }</code> for
+                  <code class="text-slate-300">frontend</code> &
+                  <code class="text-slate-300">backend</code>. Logos are
+                  auto-mapped.
+                </li>
+                <li>
+                  <code class="text-blue-400">projectGoal</code> : A string
+                  supporting Markdown to explain the context of your work.
+                </li>
+                <li>
+                  <code class="text-blue-400">stats</code> : Array of key
+                  metrics
+                  <code class="text-slate-300"
+                    >{ label, value, description }</code
+                  >.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="icons"
+        class="bg-slate-900 rounded-3xl p-8 border border-slate-800 relative overflow-hidden"
+      >
+        <div
+          class="absolute -right-20 -top-20 w-64 h-64 bg-blue-500/10 blur-3xl rounded-full"
+        ></div>
+
+        <h2 class="text-2xl font-bold text-white mb-4 relative z-10">
+          Auto-mapped Icons & Contribution
+        </h2>
+        <p class="text-slate-400 mb-8 max-w-2xl relative z-10">
+          TechCard automatically maps strings like <code>"github"</code> or
+          <code>"react"</code> to their respective logos to keep your config
+          clean.
+          <strong
+            >Is your favorite stack or social network missing? Add it!</strong
+          >
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-8 relative z-10">
+          <div>
+            <h3
+              class="text-sm font-bold text-white uppercase tracking-wider mb-4"
+            >
+              How mapping works
+            </h3>
+            <div
+              class="bg-slate-950 rounded-xl p-4 border border-slate-800 font-mono text-xs text-slate-300"
+            >
+              <span class="text-slate-500">// src/utils/icons.ts</span>
+              <span class="text-purple-400">const</span>
+              <span class="text-slate-200"
+                >SOCIAL_KEY_MAP: Record&lt;string, string&gt; = {</span
+              >
+              <span class="text-amber-300">"facebook"</span>:
+              <span class="text-amber-300">"fb"</span>,
+              <span class="text-amber-300">"fb"</span>:
+              <span class="text-amber-300">"fb"</span>,
+              <span class="text-amber-300">"linkedin"</span>:
+              <span class="text-amber-300">"in"</span>,
+              <span class="text-amber-300">"in"</span>:
+              <span class="text-amber-300">"in"</span>,
+              <span class="text-amber-300">"github"</span>:
+              <span class="text-amber-300">"github"</span>,
+              <span class="text-amber-300">"git"</span>:
+              <span class="text-amber-300">"github"</span>
+              <span class="text-slate-200">};</span>
+
+              <span class="text-slate-500"
+                >/* Same for TECH_ICONS ("react", "laravel", etc.) */</span
+              >
+            </div>
+          </div>
+
+          <div>
+            <h3
+              class="text-sm font-bold text-white uppercase tracking-wider mb-4"
+            >
+              How to contribute icons
+            </h3>
+            <ol class="space-y-4 text-sm text-slate-400">
+              <li class="flex gap-3">
+                <span class="text-blue-500 font-bold">1.</span>
+                <span
+                  ><strong>Fork</strong> the repository & clone it
+                  locally.</span
+                >
+              </li>
+              <li class="flex gap-3">
+                <span class="text-blue-500 font-bold">2.</span>
+                <span
+                  >Create a branch:
+                  <code class="bg-slate-800 px-1.5 py-0.5 rounded text-xs"
+                    >git checkout -b feat/add-vue-icon</code
+                  ></span
+                >
+              </li>
+              <li class="flex gap-3">
+                <span class="text-blue-500 font-bold">3.</span>
+                <span
+                  >Add your image URL to
+                  <code
+                    class="bg-slate-800 px-1.5 py-0.5 rounded text-xs text-blue-300"
+                    >src/utils/icons.ts</code
+                  >
+                  in <code class="text-white">SOCIAL_ICONS</code> or
+                  <code class="text-white">TECH_ICONS</code>.</span
+                >
+              </li>
+              <li class="flex gap-3">
+                <span class="text-blue-500 font-bold">4.</span>
+                <span>Push and open a <strong>Pull Request</strong>!</span>
+              </li>
+            </ol>
+          </div>
         </div>
       </section>
 
@@ -371,6 +643,7 @@
           </div>
         </div>
       </section>
+
       <section
         class="text-center bg-blue-600/10 border border-blue-500/20 py-16 rounded-3xl"
       >
@@ -473,14 +746,26 @@
         copyAction(code, button);
       }
 
-      function copySimpleText(text, button) {
-        const originalText = button.innerHTML;
+      function copyAction(text, button) {
+        const originalText = button.innerText;
         navigator.clipboard.writeText(text).then(() => {
           button.innerText = "Copied!";
           button.classList.add("bg-emerald-600", "text-white");
           setTimeout(() => {
-            button.innerHTML = originalText;
+            button.innerText = originalText;
             button.classList.remove("bg-emerald-600", "text-white");
+          }, 2000);
+        });
+      }
+
+      function copySimpleText(text, button) {
+        const originalText = button.innerHTML;
+        navigator.clipboard.writeText(text).then(() => {
+          button.innerText = "Copied!";
+          button.classList.add("text-emerald-500");
+          setTimeout(() => {
+            button.innerHTML = originalText;
+            button.classList.remove("text-emerald-500");
           }, 2000);
         });
       }
@@ -506,7 +791,7 @@
           },
         });
 
-        myCard.open();
+        // myCard.open();
 
         document
           .getElementById("demo-btn")
