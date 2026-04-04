@@ -1,5 +1,5 @@
 export type CardType = "solo" | "solo-mini" | "team" | "team-mini";
-export type Theme = "light" | "dark";
+export type Theme = "light" | "dark" | string;
 
 export interface Social {
     name: string;
@@ -21,7 +21,7 @@ export interface User {
     name: string;
     role: string;
     bio?: string;
-    avatar: string;
+    avatar?: string;
     qrcode?: string;
     social_long?: boolean;
     socials: Social[];
@@ -41,3 +41,6 @@ export interface TechCardOptions {
         stats?: Stat[];
     };
 }
+
+// Type utilitaire pour les variables CSS personnalisées (ex: { accent: "255 0 0" })
+export type ThemeConfig = Record<string, string>;
