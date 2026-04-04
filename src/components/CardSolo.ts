@@ -130,7 +130,6 @@ export class CardSolo extends BaseCard {
     private renderSocialsBlock(parent: HTMLElement) {
         const { user } = this.options;
         const block = createElement("div", "socials-footer", {}, parent);
-        // Style inline pour l'isolation si pas géré en CSS
         block.style.borderTop = "1px solid rgb(var(--app-border))";
         block.style.padding = "1.25rem";
 

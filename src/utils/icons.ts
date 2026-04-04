@@ -31,6 +31,7 @@ export function getStackIcon(name: string): string {
     };
     
     const key = name.toLowerCase();
+    
     // Gestion simplifiée des alias pour la stack
     if (key === "javascript") return TECH_ICONS.js;
     return TECH_ICONS[key] || "";

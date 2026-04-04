@@ -15,7 +15,6 @@ export interface Stat {
     label: string;
     value: string | number;
     description?: string;
-    // enabled?: boolean;
 }
 
 export interface User {

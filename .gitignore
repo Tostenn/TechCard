@@ -1,8 +1,8 @@
 node_modules/
 .DS_Store
 build/
-dist/*
-src/tests/l*.html
+dist/
+src/tests/
 
 
 *.local
