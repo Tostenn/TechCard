@@ -166,7 +166,7 @@ export class CardSolo extends BaseCard {
     createElement("p", "section-label", {}, panel).textContent = "But du site";
     createElement("h3", "section-title", {}, panel).textContent =
       "Objectif du projet";
-    createElement("p", "section-text", {}, panel).textContent =
+    createElement("p", "section-text", {}, panel).innerHTML =
       content?.projectGoal || "Aucun objectif défini.";
   }
 
