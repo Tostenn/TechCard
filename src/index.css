@@ -2,52 +2,104 @@
 @tailwind components;
 @tailwind utilities;
 
-
+/* ==========================================================================
+   VARIABLES GLOBALES (Thème par défaut - Light)
+   ========================================================================== */
 :host {
   color-scheme: light;
 
-  --app-bg: 248 250 252;
-  --app-surface: 255 255 255;
-  --app-surface-2: 241 245 249;
-  --app-border: 226 232 240;
+  /* --- Couleurs (Format RGB pour compatibilité opacité Tailwind) --- */
+  --tc-bg: 248 250 252;          /* slate-50 */
+  --tc-surface: 255 255 255;     /* white */
+  --tc-surface-2: 241 245 249;   /* slate-100 */
+  --tc-border: 226 232 240;      /* slate-200 */
 
-  --app-text: 15 23 42;
-  --app-muted: 100 116 139;
+  --tc-text-primary: 15 23 42;   /* slate-900 */
+  --tc-text-muted: 100 116 139;  /* slate-500 */
 
-  --app-accent: 79 70 229;
-  --app-accent-strong: 67 56 202;
-  --app-accent-soft: 224 231 255;
+  --tc-accent: 79 70 229;        /* indigo-600 */
+  --tc-accent-hover: 67 56 202;  /* indigo-700 */
+  --tc-accent-soft: 224 231 255; /* indigo-100 */
 
-  --app-success: 22 163 74;
-  --app-danger: 220 38 38;
-  --text-color: #0f172a;
+  --tc-success: 22 163 74;       /* green-600 */
+  --tc-danger: 220 38 38;        /* red-600 */
+
+  /* --- Géométrie & Formes --- */
+  --tc-radius-card: 1.75rem;
+  --tc-radius-panel: 1.5rem;
+  --tc-radius-item: 1rem;
+  --tc-radius-btn: 0.75rem;
+  --tc-radius-avatar: 9999px;
+
+  /* --- Effets & Superposition --- */
+  --tc-overlay-bg: rgba(0, 0, 0, 0.65);
+  --tc-overlay-blur: 6px;
+  --tc-shadow-card: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --tc-shadow-hover: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 }
 
+/* ==========================================================================
+   VARIABLES GLOBALES (Thème Dark)
+   ========================================================================== */
 :host([data-theme="dark"]) {
   color-scheme: dark;
-  --text-color: #f8fafc;
 
-  --app-bg: 2 6 23;
-  --app-surface: 15 23 42;
-  --app-surface-2: 30 41 59;
-  --app-border: 51 65 85;
+  /* --- Couleurs Dark --- */
+  --tc-bg: 2 6 23;               /* slate-950 */
+  --tc-surface: 15 23 42;        /* slate-900 */
+  --tc-surface-2: 30 41 59;      /* slate-800 */
+  --tc-border: 51 65 85;         /* slate-700 */
 
-  --app-text: 248 250 252;
-  --app-muted: 148 163 184;
+  --tc-text-primary: 248 250 252;/* slate-50 */
+  --tc-text-muted: 148 163 184;  /* slate-400 */
 
-  --app-accent: 129 140 248;
-  --app-accent-strong: 99 102 241;
-  --app-accent-soft: 49 46 129;
+  --tc-accent: 129 140 248;      /* indigo-400 */
+  --tc-accent-hover: 99 102 241; /* indigo-500 */
+  --tc-accent-soft: 49 46 129;   /* indigo-900 */
 
-  --app-success: 34 197 94;
-  --app-danger: 248 113 113;
+  --tc-success: 34 197 94;       /* green-500 */
+  --tc-danger: 248 113 113;      /* red-400 */
+
+  /* --- Effets Dark --- */
+  --tc-overlay-bg: rgba(0, 0, 0, 0.85);
+  --tc-shadow-card: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
 }
- 
+
+/* ==========================================================================
+   COMPOSANTS & STRUCTURE
+   ========================================================================== */
 @layer components {
-    .signature-overlay {
+
+  /* ----------------------------------------
+     1. Animations
+     ---------------------------------------- */
+  @keyframes overlayFade { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes overlayFadeOut { to { opacity: 0; } }
+  
+  @keyframes cardEnter {
+    0% { opacity: 0; transform: scale(0.92) translateY(30px); filter: blur(8px); }
+    100% { opacity: 1; transform: scale(1) translateY(0); filter: blur(0); }
+  }
+  @keyframes cardExit {
+    to { opacity: 0; transform: scale(0.95) translateY(20px); filter: blur(6px); }
+  }
+
+  /* ----------------------------------------
+     2. Layout & Overlays
+     ---------------------------------------- */
+  .signature-overlay {
     @apply fixed inset-0 z-50 flex items-center justify-center;
-    background: rgba(0, 0, 0, 0.65);
-    backdrop-filter: blur(6px);
+    background: var(--tc-overlay-bg);
+    backdrop-filter: blur(var(--tc-overlay-blur));
+    animation: overlayFade 0.25s ease forwards;
+  }
+  
+  .signature-overlay.closing {
+    animation: overlayFadeOut 0.2s ease forwards;
+  }
+  
+  .signature-overlay.closing .signature-card {
+    animation: cardExit 0.2s ease forwards;
   }
 
   .close-btn {
@@ -57,108 +109,30 @@
     background: rgba(0, 0, 0, 0.6);
     transition: all 0.2s ease;
   }
-
   .close-btn:hover {
     background: rgba(0, 0, 0, 0.85);
     transform: scale(1.1);
   }
-  .tab-btn {
-    transition: all 0.2s ease;
-    }
 
-  .tab-btn:hover {
-  transform: translateY(-1px);
-  }
-
-  .credits {
-    @apply absolute -top-10 left-4 px-3 py-1.5 rounded-xl text-xs font-semibold shadow-md flex items-center gap-1;
-    background: rgb(var(--app-text));
-    color: rgb(var(--app-surface));
-    backdrop-filter: blur(6px);
-    border: 1px solid rgba(255,255,255,0.1);
-    transition: all 0.2s ease;
-  }
-
-  .credits:hover {
-    transform: translateY(-2px) scale(1.03);
-    opacity: 0.9;
-  }
-}
-
-@layer components {
-  /* Overlay animation */
-  .signature-overlay {
-    @apply fixed inset-0 z-50 flex items-center justify-center;
-    background: rgba(0, 0, 0, 0.65);
-    backdrop-filter: blur(6px);
-    animation: overlayFade 0.25s ease forwards;
-  }
-
-  @keyframes overlayFade {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  /* CARD animation */
-  .signature-card {
-    animation: cardEnter 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-
-  @keyframes cardEnter {
-    0% {
-      opacity: 0;
-      transform: scale(0.92) translateY(30px);
-      filter: blur(8px);
-    }
-    100% {
-      opacity: 1;
-      transform: scale(1) translateY(0);
-      filter: blur(0);
-    }
-  }
-
-  /* Animation sortie */
-  .signature-overlay.closing {
-    animation: overlayFadeOut 0.2s ease forwards;
-  }
-
-  .signature-overlay.closing .signature-card {
-    animation: cardExit 0.2s ease forwards;
-  }
-
-  @keyframes overlayFadeOut {
-    to {
-      opacity: 0;
-    }
-  }
-
-  @keyframes cardExit {
-    to {
-      opacity: 0;
-      transform: scale(0.95) translateY(20px);
-      filter: blur(6px);
-    }
-  }
-}
-@layer components {
   .signature-page {
     @apply px-4 py-8 sm:px-6 lg:px-8;
   }
+
+  /* ----------------------------------------
+     3. Carte Principale
+     ---------------------------------------- */
+  .signature-card {
+    @apply relative mx-auto w-full max-w-2xl border transition-transform duration-200;
+    background: rgb(var(--tc-surface));
+    border-color: rgb(var(--tc-border));
+    border-radius: var(--tc-radius-card);
+    box-shadow: var(--tc-shadow-card);
+    animation: cardEnter 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  }
   .signature-card:hover {
     transform: scale(1.01);
-    transition: transform 0.2s ease;
-    }
-
-  .signature-card {
-    @apply relative mx-auto w-full max-w-2xl  rounded-[1.75rem] border shadow-xl relative;
-    background: rgb(var(--app-surface));
-    border-color: rgb(var(--app-border));
+    box-shadow: var(--tc-shadow-hover);
   }
-
   .signature-card--mini {
     @apply max-w-2xl;
   }
@@ -166,273 +140,260 @@
   .card-header {
     @apply flex flex-col gap-5 p-5 sm:flex-row sm:p-6 items-center justify-center;
   }
-  .card-header .info-user {
+
+  .panel {
+    @apply border-t px-5 py-5 sm:px-6;
+    border-color: rgb(var(--tc-border));
+  }
+
+  /* ----------------------------------------
+     4. Éléments Utilisateur
+     ---------------------------------------- */
+  .info-user {
     @apply min-w-0 flex-1 justify-center flex flex-col items-center gap-1 sm:items-start;
   }
-
+  .user-info--mini {
+    @apply flex flex-col min-w-0 flex-1 justify-center;
+  }
+  
   .avatar-wrap {
-    @apply shrink-0 overflow-hidden rounded-full border p-1 shadow-sm;
+    @apply shrink-0 overflow-hidden border p-1 shadow-sm;
     width: 8.5rem;
     height: 8.5rem;
-    border-color: rgb(var(--app-border));
-    background: rgb(var(--app-surface-2));
+    border-radius: var(--tc-radius-avatar);
+    border-color: rgb(var(--tc-border));
+    background: rgb(var(--tc-surface-2));
   }
-
   .avatar-wrap--mini {
     width: 7.5rem;
     height: 7.5rem;
   }
-
   .avatar-image {
-    @apply h-full w-full rounded-full object-cover;
+    @apply h-full w-full object-cover;
+    border-radius: var(--tc-radius-avatar);
   }
 
   .user-topline {
     @apply flex flex-wrap items-center gap-2;
   }
-
   .user-name {
     @apply text-2xl font-bold tracking-tight sm:text-3xl;
-    color: var(--text-color);
-
+    color: rgb(var(--tc-text-primary));
   }
-
   .user-role {
     @apply mt-1 text-sm font-semibold;
-    color: rgb(var(--app-muted));
+    color: rgb(var(--tc-text-muted));
   }
-
   .user-bio {
     @apply mt-3 text-sm leading-6;
-    color: rgb(var(--app-muted));
+    color: rgb(var(--tc-text-muted));
   }
 
+  /* Mark / Badge */
   .user-mark {
     @apply inline-flex h-6 w-6 items-center justify-center rounded-full border text-xs font-bold;
-    border-color: rgb(var(--app-border));
-    color: rgb(var(--app-accent));
-    background: rgba(79, 70, 229, 0.08);
+    border-color: rgb(var(--tc-border));
+    color: rgb(var(--tc-accent));
+    /* Utilisation de l'opacité via la variable RGB */
+    background: rgb(var(--tc-accent) / 0.08); 
   }
   .user-mark img {
     @apply h-4 w-4 object-contain;
   }
 
-  .tabs {
-    @apply mx-5 mt-1 flex flex-wrap justify-center gap-2 rounded-2xl border p-2 sm:mx-6;
-    background: rgb(var(--app-surface-2));
-    border-color: rgb(var(--app-border));
-  }
-
-  .tab-btn {
-    @apply rounded-xl px-4 py-2 text-sm font-semibold transition;
-    color: rgb(var(--app-muted));
-  }
-  
-  .btn-tabs {
-    @apply tab-btn flex items-center gap-2;
-  }
-
-  .tab-btn--active {
-    @apply shadow-sm;
-    background: rgb(var(--app-accent));
-    color: white;
-  }
-
-  .panel {
-    @apply border-t px-5 py-5 sm:px-6;
-    border-color: rgb(var(--app-border));
-  }
-
+  /* ----------------------------------------
+     5. Typographie de Section
+     ---------------------------------------- */
   .section-label {
     @apply text-xs font-semibold uppercase tracking-[0.2em];
-    color: rgb(var(--app-muted));
+    color: rgb(var(--tc-text-muted));
   }
-
   .section-title {
     @apply mt-1 text-2xl font-bold tracking-tight sm:text-3xl uppercase;
-        color: var(--text-color);
-
+    color: rgb(var(--tc-text-primary));
   }
-
   .section-text {
     @apply mt-3 text-sm leading-6;
-    color: rgb(var(--app-muted));
+    color: rgb(var(--tc-text-muted));
   }
-
   .content-stack {
     @apply mt-5 space-y-5;
   }
 
+  /* ----------------------------------------
+     6. Navigation (Tabs)
+     ---------------------------------------- */
+  .tabs {
+    @apply mx-5 mt-1 flex flex-wrap justify-center gap-2 border p-2 sm:mx-6;
+    background: rgb(var(--tc-surface-2));
+    border-color: rgb(var(--tc-border));
+    border-radius: var(--tc-radius-panel);
+  }
+  .tab-btn {
+    @apply px-4 py-2 text-sm font-semibold transition-all duration-200;
+    color: rgb(var(--tc-text-muted));
+    border-radius: var(--tc-radius-btn);
+  }
+  .tab-btn:hover {
+    transform: translateY(-1px);
+    color: rgb(var(--tc-text-primary));
+  }
+  .btn-tabs {
+    @apply tab-btn flex items-center gap-2;
+  }
+  .tab-btn--active {
+    @apply shadow-sm;
+    background: rgb(var(--tc-accent));
+    color: white;
+  }
+  .tab-btn--active:hover {
+    color: white;
+  }
+
+  /* ----------------------------------------
+     7. Éléments de Contenu (Techs, Socials, Stats)
+     ---------------------------------------- */
   .tech-group {
     @apply space-y-3;
   }
-
-  .tech-item {
-    @apply flex items-center gap-4 rounded-2xl border px-4 py-3 transition;
-    background: rgb(var(--app-surface-2));
-    border-color: rgb(var(--app-border));
+  .tech-item, .social-item {
+    @apply flex items-center gap-4 border px-4 py-3 transition;
+    background: rgb(var(--tc-surface-2));
+    border-color: rgb(var(--tc-border));
+    border-radius: var(--tc-radius-item);
   }
-
-  .tech-icon {
-    @apply h-11 w-11 rounded-xl object-cover;
+  .tech-item:hover, .social-item:hover {
+    border-color: rgb(var(--tc-accent));
   }
-
-  .tech-title {
+  
+  .tech-icon, .social-icon {
+    @apply h-11 w-11 object-cover;
+    border-radius: var(--tc-radius-btn);
+  }
+  .tech-title, .social-title {
     @apply text-base font-bold sm:text-lg;
-    color: var(--text-color);
-
+    color: rgb(var(--tc-text-primary));
   }
-  .team-sup-title {
-    @apply text-sm font-semibold uppercase tracking-wide text-slate-500;
-    color: rgb(var(--app-muted));
-  }
-
   .tech-meta {
     @apply text-sm;
-    color: rgb(var(--app-muted));
+    color: rgb(var(--tc-text-muted));
   }
 
+  /* Social Layouts */
   .socials-footer {
     @apply border-t p-5 sm:p-6;
-    border-color: rgb(var(--app-border));
+    border-color: rgb(var(--tc-border));
   }
-
   .social_long_true {
-    @apply social-list mt-4;
+    @apply grid gap-3 sm:grid-cols-2 mt-4;
   }
   .social_long_false {
-    @apply social-icons-only mt-5;
+    @apply flex items-center justify-center gap-3 mt-5;
   }
-
   .social-icon-short {
     @apply h-6 w-6;
   }
-
-  .social-list {
-    @apply grid gap-3 sm:grid-cols-2;
-  }
-
-  .social-item {
-    @apply flex items-center gap-4 rounded-2xl border px-4 py-3;
-    background: rgb(var(--app-surface-2));
-    border-color: rgb(var(--app-border));
-  }
-
-  .social-icon {
-    @apply h-11 w-11 rounded-xl object-cover;
-  }
-
-  .social-title {
-    @apply text-base font-bold;
-    color: var(--text-color);
-
-  }
-
   .social-link {
     @apply break-all text-sm;
-    color: rgb(var(--app-muted));
+    color: rgb(var(--tc-text-muted));
   }
-
-  .social-icons-only {
-    @apply flex items-center justify-center gap-3;
-  }
-
   .social-icons-only img {
-    @apply h-11 w-11 rounded-xl object-cover;
+    @apply h-11 w-11 object-cover;
+    border-radius: var(--tc-radius-btn);
   }
 
+  /* Stats */
   .stat-list {
     @apply mt-4 space-y-3;
   }
-
   .stat-row {
-    @apply flex items-start justify-between gap-4 rounded-2xl border px-4 py-3;
-    background: rgb(var(--app-surface-2));
-    border-color: rgb(var(--app-border));
+    @apply flex items-start justify-between gap-4 border px-4 py-3;
+    background: rgb(var(--tc-surface-2));
+    border-color: rgb(var(--tc-border));
+    border-radius: var(--tc-radius-item);
   }
-
   .stat-key {
     @apply text-sm font-semibold capitalize;
-        color: var(--text-color);
-
+    color: rgb(var(--tc-text-primary));
   }
-
   .stat-value {
     @apply mt-1 text-base font-bold sm:text-lg;
-        color: var(--text-color);
+    color: rgb(var(--tc-text-primary));
   }
-
   .stat-meta {
     @apply mt-1 text-xs;
-    color: rgb(var(--app-muted));
+    color: rgb(var(--tc-text-muted));
   }
 
+  /* ----------------------------------------
+     8. Utilitaires UI (Pills, QRCode, Credits)
+     ---------------------------------------- */
   .pill {
     @apply inline-flex items-center rounded-full px-2.5 py-1 text-xs font-semibold;
   }
-
   .pill--on {
-    background: rgba(22, 163, 74, 0.12);
-    color: rgb(var(--app-success));
+    background: rgb(var(--tc-success) / 0.12);
+    color: rgb(var(--tc-success));
   }
-
   .pill--off {
-    background: rgba(100, 116, 139, 0.14);
-    color: rgb(var(--app-muted));
+    background: rgb(var(--tc-text-muted) / 0.14);
+    color: rgb(var(--tc-text-muted));
   }
 
   .qrcode {
-    @apply absolute right-4 top-4 h-20 w-20 rounded-xl border p-1 shadow-sm;
-    background: rgb(var(--app-surface));
-    border-color: rgb(var(--app-border));
+    @apply absolute right-4 top-4 h-20 w-20 border p-1 shadow-sm;
+    background: rgb(var(--tc-surface));
+    border-color: rgb(var(--tc-border));
+    border-radius: var(--tc-radius-btn);
   }
   .qrcode img {
     @apply h-full w-full object-cover;
   }
 
-  .user-info--mini {
-    @apply flex flex-col min-w-0 flex-1 justify-center;
+  .credits {
+    @apply absolute -top-10 left-4 px-3 py-1.5 text-xs font-semibold shadow-md flex items-center gap-1;
+    background: rgb(var(--tc-text-primary));
+    color: rgb(var(--tc-surface));
+    border-radius: var(--tc-radius-btn);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: all 0.2s ease;
+  }
+  .credits:hover {
+    transform: translateY(-2px) scale(1.03);
+    opacity: 0.9;
   }
 
-
-  .mini-header {
-    @apply relative flex flex-col gap-4 p-5 sm:flex-row sm:items-start sm:p-6;
+  /* ----------------------------------------
+     9. Composants Team
+     ---------------------------------------- */
+  .team-sup-title {
+    @apply text-sm font-semibold uppercase tracking-wide;
+    color: rgb(var(--tc-text-muted));
   }
-
-  .mini-socials {
-    @apply mt-4 flex flex-wrap items-center gap-3;
-  }
-
-  .mini-socials img {
-    @apply h-12 w-12 rounded-xl object-cover;
-  }
-}
-
-@layer components {
   .team-card {
-    @apply flex w-full items-center gap-4 rounded-2xl border p-4 text-left transition;
-    background: rgb(var(--app-surface));
-    border-color: rgb(var(--app-border));
+    @apply flex w-full items-center gap-4 border p-4 text-left transition;
+    background: rgb(var(--tc-surface));
+    border-color: rgb(var(--tc-border));
+    border-radius: var(--tc-radius-item);
     box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
   }
-
   .team-card:hover {
     @apply -translate-y-[1px];
-    border-color: rgb(var(--app-accent));
+    border-color: rgb(var(--tc-accent));
     box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
   }
-
   .team-card--active {
-    background: rgba(79, 70, 229, 0.06);
-    border-color: rgb(var(--app-accent));
+    background: rgb(var(--tc-accent) / 0.06);
+    border-color: rgb(var(--tc-accent));
   }
 
   .team-card__avatar {
-    @apply h-16 w-16 shrink-0 overflow-hidden rounded-2xl border;
-    border-color: rgb(var(--app-border));
-    background: rgb(var(--app-surface-2));
+    @apply h-16 w-16 shrink-0 overflow-hidden border;
+    border-radius: var(--tc-radius-item);
+    border-color: rgb(var(--tc-border));
+    background: rgb(var(--tc-surface-2));
   }
-
   .team-card__avatar img {
     @apply h-full w-full object-cover;
   }
@@ -440,25 +401,21 @@
   .team-card__content {
     @apply min-w-0 flex-1;
   }
-
   .team-card__top {
     @apply flex items-center gap-2;
   }
-
   .team-card__name {
     @apply truncate text-lg font-bold;
+    color: rgb(var(--tc-text-primary));
   }
-
   .team-card__role {
     @apply mt-1 text-sm font-medium;
-    color: rgb(var(--app-muted));
+    color: rgb(var(--tc-text-muted));
   }
-
   .team-card__badge {
     @apply inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full;
-    background: rgba(79, 70, 229, 0.10);
+    background: rgb(var(--tc-accent) / 0.10);
   }
-
   .team-card__badge img {
     @apply h-4 w-4 object-contain;
   }
@@ -466,129 +423,118 @@
   .team-card__socials {
     @apply mt-3 flex items-center gap-2;
   }
-
   .team-card__socials img {
-    @apply h-9 w-9 rounded-xl border object-contain p-2;
-    background: rgb(var(--app-surface-2));
-    border-color: rgb(var(--app-border));
+    @apply h-9 w-9 border object-contain p-2;
+    border-radius: var(--tc-radius-btn);
+    background: rgb(var(--tc-surface-2));
+    border-color: rgb(var(--tc-border));
   }
 
+  /* Team Details */
   .team-detail {
-    @apply rounded-[1.75rem] border p-5 sm:p-6;
-    background: rgb(var(--app-surface));
-    border-color: rgb(var(--app-border));
+    @apply border p-5 sm:p-6;
+    border-radius: var(--tc-radius-card);
+    background: rgb(var(--tc-surface));
+    border-color: rgb(var(--tc-border));
   }
-
   .team-detail__header {
     @apply flex items-start justify-between gap-4;
   }
 
   .back-btn {
     @apply inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border transition;
-    background: rgb(var(--app-surface-2));
-    border-color: rgb(var(--app-border));
+    background: rgb(var(--tc-surface-2));
+    border-color: rgb(var(--tc-border));
   }
-
   .back-btn:hover {
     @apply scale-105;
-    border-color: rgb(var(--app-accent));
+    border-color: rgb(var(--tc-accent));
   }
-
   .back-btn__icon {
     @apply h-5 w-5;
-    color: rgb(var(--app-text));
+    color: rgb(var(--tc-text-primary));
   }
 
   .team-detail__avatar {
-    @apply h-16 w-16 overflow-hidden rounded-2xl border;
-    border-color: rgb(var(--app-border));
-    background: rgb(var(--app-surface-2));
+    @apply h-16 w-16 overflow-hidden border;
+    border-radius: var(--tc-radius-item);
+    border-color: rgb(var(--tc-border));
+    background: rgb(var(--tc-surface-2));
   }
-
   .team-detail__avatar img {
     @apply h-full w-full object-cover;
   }
-
   .team-detail__name {
     @apply text-2xl font-bold tracking-tight;
+    color: rgb(var(--tc-text-primary));
   }
-
   .team-detail__role {
     @apply text-sm font-semibold;
-    color: rgb(var(--app-muted));
+    color: rgb(var(--tc-text-muted));
   }
-
   .team-detail__bio {
     @apply mt-4 text-sm leading-6;
-    color: rgb(var(--app-muted));
+    color: rgb(var(--tc-text-muted));
   }
 
   .detail-block {
-    @apply mt-5 rounded-2xl border p-4;
-    background: rgb(var(--app-surface-2));
-    border-color: rgb(var(--app-border));
+    @apply mt-5 border p-4;
+    border-radius: var(--tc-radius-item);
+    background: rgb(var(--tc-surface-2));
+    border-color: rgb(var(--tc-border));
   }
-
   .detail-block__summary {
     @apply flex cursor-pointer list-none items-center justify-between gap-4 font-semibold;
+    color: rgb(var(--tc-text-primary));
   }
-
   .detail-block__summary::-webkit-details-marker {
     display: none;
   }
-
   .detail-block__chevron {
     @apply h-5 w-5 shrink-0 transition-transform;
   }
-
   details[open] .detail-block__chevron {
     transform: rotate(180deg);
   }
-
   .detail-block__content {
     @apply mt-4 text-sm leading-6;
-    color: rgb(var(--app-muted));
+    color: rgb(var(--tc-text-muted));
   }
 
-  .stat-row {
-    @apply flex items-center justify-between gap-4 rounded-xl border px-4 py-3;
-    background: rgb(var(--app-surface));
-    border-color: rgb(var(--app-border));
+  /* ----------------------------------------
+     10. Divers (Mini styles, Tech rows)
+     ---------------------------------------- */
+  .mini-header {
+    @apply relative flex flex-col gap-4 p-5 sm:flex-row sm:items-start sm:p-6;
+  }
+  .mini-socials {
+    @apply mt-4 flex flex-wrap items-center gap-3;
+  }
+  .mini-socials img {
+    @apply h-12 w-12 object-cover;
+    border-radius: var(--tc-radius-btn);
   }
 
-  .stat-row__key {
-    @apply text-sm font-medium;
-  }
-
-  .stat-row__value {
-    @apply text-sm font-bold;
-    color: rgb(var(--app-text));
-  }
-}
-
-@layer components {
   .tech-row {
-    @apply flex items-center gap-3 rounded-xl border px-3 py-2 transition;
-    background: rgb(var(--app-surface));
-    border-color: rgb(var(--app-border));
+    @apply flex items-center gap-3 border px-3 py-2 transition;
+    border-radius: var(--tc-radius-btn);
+    background: rgb(var(--tc-surface));
+    border-color: rgb(var(--tc-border));
   }
-
   .tech-row:hover {
     @apply -translate-y-[1px];
-    border-color: rgb(var(--app-accent));
+    border-color: rgb(var(--tc-accent));
   }
-
   .tech-row__icon {
     @apply h-10 w-10 rounded-lg object-contain p-1;
-    background: rgb(var(--app-surface-2));
+    background: rgb(var(--tc-surface-2));
   }
-
   .tech-row__name {
     @apply text-sm font-semibold;
+    color: rgb(var(--tc-text-primary));
   }
-
   .tech-row__meta {
     @apply text-xs;
-    color: rgb(var(--app-muted));
+    color: rgb(var(--tc-text-muted));
   }
 }
