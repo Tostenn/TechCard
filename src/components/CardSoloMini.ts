@@ -9,7 +9,7 @@ export class CardSoloMini extends BaseCard {
     // 1. Conteneur principal
     const section = createElement(
       "section",
-      "signature-card signature-card--mini relative",
+      "signature-card signature-card--mini",
       {},
       root,
     );
@@ -19,8 +19,7 @@ export class CardSoloMini extends BaseCard {
     if (user.qrcode) {
       const qrcode = createElement("div", "qrcode", {}, section);
       createElement(
-        "img",
-        "h-full w-full object-cover",
+        "img", '',
         {
           src: user.qrcode,
           alt: "QR Code",
@@ -54,7 +53,7 @@ export class CardSoloMini extends BaseCard {
 
     const content = createElement(
       "div",
-      "flex flex-col min-w-0 flex-1 justify-center",
+      "user-info--mini",
       {},
       header,
     );

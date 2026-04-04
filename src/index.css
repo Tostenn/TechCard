@@ -154,7 +154,7 @@
     }
 
   .signature-card {
-    @apply relative mx-auto w-full max-w-2xl  rounded-[1.75rem] border shadow-xl;
+    @apply relative mx-auto w-full max-w-2xl  rounded-[1.75rem] border shadow-xl relative;
     background: rgb(var(--app-surface));
     border-color: rgb(var(--app-border));
   }
@@ -227,6 +227,10 @@
     @apply rounded-xl px-4 py-2 text-sm font-semibold transition;
     color: rgb(var(--app-muted));
   }
+  
+  .btn-tabs {
+    @apply tab-btn flex items-center gap-2;
+  }
 
   .tab-btn--active {
     @apply shadow-sm;
@@ -278,10 +282,30 @@
     color: var(--text-color);
 
   }
+  .team-sup-title {
+    @apply text-sm font-semibold uppercase tracking-wide text-slate-500;
+    color: rgb(var(--app-muted));
+  }
 
   .tech-meta {
     @apply text-sm;
     color: rgb(var(--app-muted));
+  }
+
+  .socials-footer {
+    @apply border-t p-5 sm:p-6;
+    border-color: rgb(var(--app-border));
+  }
+
+  .social_long_true {
+    @apply social-list mt-4;
+  }
+  .social_long_false {
+    @apply social-icons-only mt-5;
+  }
+
+  .social-icon-short {
+    @apply h-6 w-6;
   }
 
   .social-list {
@@ -362,6 +386,14 @@
     background: rgb(var(--app-surface));
     border-color: rgb(var(--app-border));
   }
+  .qrcode img {
+    @apply h-full w-full object-cover;
+  }
+
+  .user-info--mini {
+    @apply flex flex-col min-w-0 flex-1 justify-center;
+  }
+
 
   .mini-header {
     @apply relative flex flex-col gap-4 p-5 sm:flex-row sm:items-start sm:p-6;
