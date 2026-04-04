@@ -27,12 +27,14 @@ export function getStackIcon(name: string): string {
         react: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png",
         php: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Php_logo.svg/1280px-Php_logo.svg.png",
         tailwind: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/1280px-Tailwind_CSS_Logo.svg.png",
-        js: "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png"
+        js: "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
+        ts: 'https://cdn.worldvectorlogo.com/logos/typescript.svg',
     };
     
     const key = name.toLowerCase();
     
     // Gestion simplifiée des alias pour la stack
     if (key === "javascript") return TECH_ICONS.js;
+    if (key === "typescript") return TECH_ICONS.ts;
     return TECH_ICONS[key] || "";
 }
