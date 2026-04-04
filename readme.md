@@ -1,181 +1,131 @@
-# ⚡ TechCard v1.0.2
+# ⚡ TechCard v1.1
 
-**TechCard** is an elegant, ultra-lightweight, and highly customizable profile widget designed to be integrated into any website with a single line of code.
+**Your TypeScript-powered tech identity. Elegant, Isolated, and Fully Customizable.**
 
-Initially built in pure JavaScript, the project has been completely **rewritten in TypeScript** to provide a robust architecture, better maintainability, and a top-tier developer experience. By leveraging **Shadow DOM**, TechCard remains completely isolated from the host site's CSS, ensuring a perfect render regardless of your framework or existing stylesheets.
+TechCard is an ultra-lightweight profile widget designed to provide an instant professional showcase for developers. Built with **TypeScript** and **Shadow DOM**, it ensures a perfect, conflict-free render on any website, from static portfolios to complex React/Vue applications.
 
-**Live Demo:** [https://tostenn.github.io/TechCard/](https://tostenn.github.io/TechCard/)
+**[Explore Live Demo](https://tostenn.github.io/TechCard/)** | **[View Themes](https://www.google.com/search?q=%23-unlimited-theming)**
 
+-----
 
----
+## 🚀 What's New in v1.1?
 
-## 🎯 Vision & Purpose
+The v1.1 update introduces a complete architectural shift to the **Builder Pattern**, moving away from rigid configuration objects toward a fluid, developer-friendly API.
 
-**TechCard** is designed to bridge the gap between a developer's work and their professional identity. Our vision is built on three core pillars:
+  * **Fluent API:** Chain methods like `.setUser().setTheme().build()` for a cleaner workflow.
+  * **Unlimited Themes:** Inject dynamic RGB variables to match any brand identity.
+  * **Live Rebuild:** Update your card's content or style in real-time without refreshing the page.
+  * **Data Validation:** The `.build()` method ensures your data is complete before rendering.
 
-* **The Creator's Signature**: Just as an architect signs their plans, TechCard allows you to leave a subtle, elegant footprint on every project you build.
-* **Technical Transparency**: It enables peers to instantly see the "who" and "how" behind a website, showcasing your specific tech stack and expertise at a glance.
-* **Frictionless Connectivity**: We aim to reduce the distance between developers and opportunities by making professional contact details and social profiles accessible in one click.
-
-By using the **Shadow DOM**, TechCard ensures your signature remains perfectly isolated, meaning it will **never break or interfere** with the existing styles of the host website.
-
-**[Learn more about our vision with TechCard](docs/VISION.md)**
-
----
+-----
 
 ## 📦 Installation
 
-### 1. Via npm (Recommended)
+### 1\. Via CDN (Quickest)
 
-For projects using modern bundlers (Vite, Webpack, etc.):
+Ideal for personal portfolios or simple HTML sites.
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/techcard@1.1.0/dist/techcard.js"></script>
+```
+
+### 2\. Via NPM
+
+For modern JavaScript/TypeScript projects.
 
 ```bash
 npm install techcard
-````
-
-### 2\. Via CDN (Standard Usage)
-
-Ideal for quick integration without a compilation step. Add this script tag before the end of your `</body>`:
-
-  * **ESM Version (Modern):**
-    ```html
-    <script 
-      type="module" 
-      src="https://cdn.jsdelivr.net/npm/techcard@1.0.2/dist/techcard.mjs"></script>
-    ```
-  * **UMD Version (Classic):**
-    ```html
-    <script 
-      src="https://cdn.jsdelivr.net/npm/techcard@1.0.2/dist/techcard.js"></script>
-    ```
+```
 
 -----
 
-## 🚀 Quick Start
+## 🛠️ Usage: The Builder API
 
-### Module Usage (TS/JS)
+TechCard v1.1 uses a **Fluent Interface**. You can configure and deploy your card in seconds:
 
-```typescript
+```javascript
 import { TechCard } from 'techcard';
 
-const card = new TechCard({
-  theme: "dark",
-  user: {
+const myCard = new TechCard();
+
+myCard
+  .setCard("solo") // Options: "solo", "solo-mini"
+  .setUser({
     name: "Tosten Kouya",
     role: "Full-Stack Developer",
-    avatar: "https://your-image-url.jpg"
-  }
-});
+    avatar: "https://your-photo.com/me.jpg",
+    socials: [
+      { name: "github", url: "https://github.com/Tostenn" },
+      { name: "linkedin", url: "https://linkedin.com/in/tosten-kouya" }
+    ]
+  })
+  .setContent({
+    projectGoal: "## Building the future\nCreating tools that empower developers.",
+    techStack: {
+      backend: [{ name: "Laravel" }, { name: "Python" }],
+      frontend: [{ name: "React" }, { name: "Tailwind" }]
+    }
+  })
+  .setTheme("vscode-dark", {
+    "bg": "30 30 30",
+    "accent": "0 122 204",
+    "radius-card": "4px"
+  })
+  .build(); // Validates and prepares the DOM
 
-card.open(); // Optional: to open it programmatically
+// Display the card
+myCard.open();
 ```
 
-### Classic Usage (HTML)
+-----
 
-```html
-<script>
-  window.onload = () => {
-    const card = new window.TechCard({
-      card: "solo-mini",
-      theme: "light",
-      user: {
-        name: "Your Name",
-        role: "Developer",
-        avatar: "https://your-image-url.jpg"
-      }
-    });
-  }
-</script>
-```
+## 🎨 Unlimited Theming
+
+Forget about pre-defined Light/Dark modes. TechCard now allows you to override every CSS variable using RGB values. This allows for total harmony with your site's design.
+
+> **Tip:** You can switch themes on the fly using `myCard.setTheme(...).rebuild()`.
+
+[**Explore the 10+ Community Themes →**](https://www.google.com/search?q=./docs/THEMES.md)
 
 -----
 
-## ⌨️ Magic Shortcut
+## 📚 Deep Dive Documentation
 
-Once integrated, use this shortcut to interact with the widget:
+To keep the main README concise, we have expanded our documentation into specific guides:
 
-  * **`Ctrl + Alt + D`**: Instantly open or close the widget.
+### 🌟 [The Vision](https://www.google.com/search?q=./docs/VISION.md)
 
------
+Why TechCard exists. Discover our core pillars: the Creator's Signature, Technical Transparency, and Frictionless Connectivity.
 
-## ⚙️ Full Configuration
+### 🏗️ [Architecture & Logic](https://www.google.com/search?q=./docs/ARCHITECTURE.md)
 
-### 1\. Global Options
+Understand how we use **Shadow DOM** for CSS isolation, how the **Builder Pattern** manages state, and why we chose a zero-dependency approach.
 
-| Option | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| `card` | `string` | `"solo-mini"` | Card format (`"solo"` or `"solo-mini"`). |
-| `theme` | `string` | `"dark"` | Visual theme (`"dark"` or `"light"`). |
-| `creditsText` | `string` | `"Powered by"` | Text displayed at the bottom of the card. |
+### 🎨 [Theming Guide](https://www.google.com/search?q=./docs/THEMES.md)
 
-### 2\. `user` Object (Profile)
+A comprehensive manual on the CSS variable system. Includes a library of ready-to-use themes (Dracula, Nord, Tokyo Night, etc.) and instructions on how to build your own.
 
-| Sub-option | Type | Description |
-| :--- | :--- | :--- |
-| `name` | `string` | Your full name. |
-| `role` | `string` | Professional title or headline. |
-| `bio` | `string` | A short description (plain text). |
-| `avatar` | `string` | URL of your profile picture. |
-| `qrcode` | `string` | URL to a QR Code (e.g., vCard or LinkedIn). |
-| `social_long`| `boolean`| `true` to display social media links in a wide format. |
-| `socials` | `array` | List of objects `{ name, url }`. Icons are auto-mapped based on the `name`. |
+### 🛠️ [Development & Contribution](https://www.google.com/search?q=./docs/DEVELOPMENT.md)
 
-### 3\. `content` Object (Expertise)
-
-| Sub-option | Type | Description |
-| :--- | :--- | :--- |
-| `techStack` | `object` | Contains `backend` and `frontend` (arrays of `{name, version}`). Icons auto-mapped. |
-| `projectGoal` | `string` | Text explaining the project goal or your vision. Supports markdown. |
-| `stats` | `array` | List of objects `{ label, value, description }` for key metrics. |
-
------
-
-## 🎨 Auto-mapped Icons & Contribution
-
-TechCard automatically maps strings like `"github"` or `"react"` in your configuration to their respective logos to keep your payload clean.
-
-**Currently supported mappings:**
-
-  * **Socials (`user.socials`)**: `github`, `linkedin`, `facebook` (or `fb`), `instagram` (or `ing`, `ins`), `youtube` (or `yt`), `certification`.
-  * **Tech Stack (`content.techStack`)**: `laravel`, `react`, `php`, `tailwind`, `javascript` (or `js`).
-
-### Missing your favorite tool or social network? Add it\!
-
-We welcome PRs to expand the icon library. To contribute:
-
-1.  **Fork** the repository and clone it.
-2.  Create a new branch (`git checkout -b feat/add-vue-icon`).
-3.  Add the image URL to the mapping dictionaries (`SOCIAL_ICONS` or `TECH_ICONS`) inside `src/utils/icons.ts`.
-4.  Commit, push, and open a **Pull Request**.
-
------
-
-## 🛠️ Modern Architecture
-
-This v1 release marks a transition to professional standards:
-
-  * **Native TypeScript**: Full typing for perfect autocompletion in your IDE.
-  * **Shadow DOM & Tailwind**: Isolated styles to prevent any conflict with your site.
-  * **Vite & Rollup**: Optimized and lightweight build (under 25kb).
-  * **CDN Ready**: Immediately available via jsDelivr.
+Ready to help? Learn how to set up the local environment, add new icons to the library, and submit Pull Requests.
 
 -----
 
 ## 🤝 Contributing
 
-TechCard is now a structured project ready for contributions. We are looking for developers to:
+TechCard is a community-driven project. We welcome contributions for:
 
-  * Add missing icons in `src/utils/icons.ts`.
-  * Create new themes (Glassmorphism, Neo-brutalism).
-  * Improve Accessibility (A11y).
-  * Develop the "Team Cards" system.
+  * New **Icons** for social networks or tech stacks.
+  * New **Layouts** (Team cards, Project-specific cards).
+  * **Accessibility (A11y)** improvements.
 
-Check out our **[Architecture Guide](docs/ARCHITECTURE.md)** to get started.
-
------
+Please read our [Contributing Guide](https://www.google.com/search?q=./docs/DEVELOPMENT.md) to get started.
 
 ## 📄 License
 
-Distributed under the MIT License.
+TechCard is released under the **MIT License**. Feel free to use it, fork it, and improve it\!
 
-**Created with ❤️ by [Tosten Kouya](https://github.com/Tostenn)**
+-----
+
+**Built with ❤️ by [Tosten Kouya](https://github.com/Tostenn)**
+*Helping developers leave their signature on the web.*
