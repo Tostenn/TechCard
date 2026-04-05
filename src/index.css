@@ -32,7 +32,7 @@
   --tc-radius-avatar: 9999px;
 
   /* --- Effets & Superposition --- */
-  --tc-overlay-bg: rgba(0, 0, 0, 0.65);
+  --tc-overlay-bg: 0, 0, 0, / 0.65;
   --tc-overlay-blur: 6px;
   --tc-shadow-card: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
   --tc-shadow-hover: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
@@ -61,7 +61,7 @@
   --tc-danger: 248 113 113;      /* red-400 */
 
   /* --- Effets Dark --- */
-  --tc-overlay-bg: rgba(0, 0, 0, 0.85);
+  --tc-overlay-bg: 0, 0, 0, /0.85;
   --tc-shadow-card: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
 }
 
@@ -89,7 +89,7 @@
      ---------------------------------------- */
   .signature-overlay {
     @apply fixed inset-0 z-50 flex items-center justify-center;
-    background: var(--tc-overlay-bg);
+    background: rgb(var(--tc-overlay-bg));
     backdrop-filter: blur(var(--tc-overlay-blur));
     animation: overlayFade 0.25s ease forwards;
   }

@@ -85,7 +85,7 @@ Forget about pre-defined Light/Dark modes. TechCard now allows you to override e
 
 > **Tip:** You can switch themes on the fly using `myCard.setTheme(...).rebuild()`.
 
-[**Explore the 10+ Community Themes →**](https://www.google.com/search?q=./docs/THEMES.md)
+[**Explore the 10+ Community Themes →**](/docs/THEMES.md)
 
 -----
 
@@ -93,19 +93,19 @@ Forget about pre-defined Light/Dark modes. TechCard now allows you to override e
 
 To keep the main README concise, we have expanded our documentation into specific guides:
 
-### 🌟 [The Vision](https://www.google.com/search?q=./docs/VISION.md)
+### 🌟 [The Vision](/docs/VISION.md)
 
 Why TechCard exists. Discover our core pillars: the Creator's Signature, Technical Transparency, and Frictionless Connectivity.
 
-### 🏗️ [Architecture & Logic](https://www.google.com/search?q=./docs/ARCHITECTURE.md)
+### 🏗️ [Architecture & Logic](/docs/ARCHITECTURE.md)
 
 Understand how we use **Shadow DOM** for CSS isolation, how the **Builder Pattern** manages state, and why we chose a zero-dependency approach.
 
-### 🎨 [Theming Guide](https://www.google.com/search?q=./docs/THEMES.md)
+### 🎨 [Theming Guide](/docs/THEMES.md)
 
 A comprehensive manual on the CSS variable system. Includes a library of ready-to-use themes (Dracula, Nord, Tokyo Night, etc.) and instructions on how to build your own.
 
-### 🛠️ [Development & Contribution](https://www.google.com/search?q=./docs/DEVELOPMENT.md)
+### 🛠️ [Development & Contribution](/docs/DEVELOPMENT.md)
 
 Ready to help? Learn how to set up the local environment, add new icons to the library, and submit Pull Requests.
 
@@ -119,7 +119,7 @@ TechCard is a community-driven project. We welcome contributions for:
   * New **Layouts** (Team cards, Project-specific cards).
   * **Accessibility (A11y)** improvements.
 
-Please read our [Contributing Guide](https://www.google.com/search?q=./docs/DEVELOPMENT.md) to get started.
+Please read our [Contributing Guide](/docs/DEVELOPMENT.md) to get started.
 
 ## 📄 License
 

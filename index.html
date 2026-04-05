@@ -48,7 +48,7 @@
     />
     <meta
       property="og:image"
-      content="https://cdn.jsdelivr.net/gh/Tostenn/TechCard/public/images/demo-vscode-solo.webp"
+      content="https://raw.githubusercontent.com/Tostenn/TechCard/refs/heads/main/public/images/demo-vscode-solo.webp"
     />
 
     <meta property="twitter:card" content="summary_large_image" />
@@ -66,183 +66,293 @@
     />
     <meta
       property="twitter:image"
-      content="https://cdn.jsdelivr.net/gh/Tostenn/TechCard/public/images/demo-solo-dark.webp"
+      content="https://raw.githubusercontent.com/Tostenn/TechCard/refs/heads/main/public/images/demo-vscode-solo.webp"
     />
   </head>
   <body class="bg-slate-950 text-slate-200 selection:bg-purple-500/30">
-    <nav class="max-w-6xl mx-auto px-6 py-8 flex justify-between items-center">
-      <div class="text-2xl font-bold tracking-tighter">
-        ⚡ Tech<span class="text-blue-500">Card</span>
-        <span
-          class="text-xs bg-blue-500/20 text-blue-400 px-2 py-1 rounded ml-2"
-          >v1.0.2</span
-        >
-      </div>
-      <div class="flex gap-6 items-center">
-        <a
-          href="https://github.com/Tostenn/TechCard"
-          class="hover:text-white transition-colors text-sm"
-          >GitHub</a
-        >
-        <a
-          href="https://www.npmjs.com/package/techcard"
-          class="hover:text-white transition-colors text-sm"
-          >npm</a
-        >
-        <a
-          href="#install"
-          class="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all"
-          >Get Started</a
-        >
+    <nav
+      class="sticky top-0 z-50 w-full backdrop-blur-md bg-slate-950/70 border-b border-white/5"
+    >
+      <div
+        class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <div class="flex items-center gap-3">
+          <div class="text-2xl font-bold tracking-tighter text-white">
+            ⚡ Tech<span class="text-indigo-500">Card</span>
+          </div>
+          <span
+            class="text-[10px] font-bold bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 px-2 py-0.5 rounded-full uppercase tracking-tighter"
+          >
+            v1.1 Stable
+          </span>
+        </div>
+
+        <div class="flex gap-8 items-center">
+          <div
+            class="hidden md:flex gap-6 items-center text-sm font-medium text-slate-400"
+          >
+            <a
+              href="https://github.com/Tostenn/TechCard"
+              class="hover:text-white transition-colors"
+              >GitHub</a
+            >
+            <a
+              href="https://www.npmjs.com/package/techcard"
+              class="hover:text-white transition-colors"
+              >NPM</a
+            >
+            <a href="#docs" class="hover:text-white transition-colors">Docs</a>
+          </div>
+          <div class="h-4 w-px bg-slate-800 hidden md:block"></div>
+          <a
+            href="https://github.com/Tostenn/TechCard"
+            class="bg-indigo-600 hover:bg-indigo-500 text-white px-5 py-2.5 rounded-xl text-sm font-bold transition-all shadow-lg shadow-indigo-500/20 active:scale-95"
+          >
+            Star on GitHub
+          </a>
+        </div>
       </div>
     </nav>
 
-    <header class="max-w-4xl mx-auto px-6 pt-16 pb-12 text-center">
+    <header class="relative max-w-5xl mx-auto px-6 pt-24 pb-20 text-center">
       <div
-        class="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 px-3 py-1 rounded-full text-blue-400 text-xs font-bold mb-6 uppercase tracking-wider"
+        class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-indigo-600/10 blur-[120px] -z-10 rounded-full"
+      ></div>
+
+      <div
+        class="inline-flex items-center gap-2 bg-indigo-500/10 border border-indigo-500/20 px-4 py-1.5 rounded-full text-indigo-400 text-[11px] font-black mb-8 uppercase tracking-[0.2em]"
       >
-        <span>🚀 Official v1 Production Release</span>
+        <span class="relative flex h-2 w-2">
+          <span
+            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"
+          ></span>
+          <span
+            class="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"
+          ></span>
+        </span>
+        New: v1.1 Builder API is live
       </div>
+
       <h1
-        class="text-5xl md:text-7xl font-extrabold text-white mb-6 tracking-tight"
+        class="text-5xl md:text-8xl font-black text-white mb-8 tracking-tighter leading-[1.1]"
       >
-        Your <span class="gradient-text">tech identity</span>, everywhere.
+        Your <span class="gradient-text">tech identity</span>,<br
+          class="hidden md:block"
+        />
+        everywhere.
       </h1>
 
-      <div class="max-w-xl mx-auto mb-10 relative group">
+      <div class="max-w-2xl mx-auto mb-12 relative group">
         <div
-          class="absolute -inset-1 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-xl blur opacity-25 group-hover:opacity-50 transition duration-1000"
+          class="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-2xl blur opacity-15 group-hover:opacity-30 transition duration-1000"
         ></div>
         <div
-          class="relative flex items-center bg-slate-900 border border-slate-800 p-1.5 rounded-xl"
+          class="relative flex items-center bg-slate-900/80 backdrop-blur-xl border border-white/10 p-2 rounded-2xl shadow-2xl"
         >
+          <div class="flex items-center gap-3 px-4 text-slate-500">
+            <span class="text-xs font-mono">CDN</span>
+            <div class="w-px h-4 bg-slate-800"></div>
+          </div>
           <code
-            class="flex-1 text-left px-4 text-xs md:text-sm text-blue-400 truncate font-mono"
-            >https://cdn.jsdelivr.net/npm/techcard@1.0.2/dist/techcard.js</code
+            class="flex-1 text-left text-sm text-indigo-300 truncate font-mono tracking-tight"
           >
+            https://cdn.jsdelivr.net/npm/techcard@1.1.0/dist/techcard.js
+          </code>
           <button
             onclick="
               copySimpleText(
-                'https://cdn.jsdelivr.net/npm/techcard@1.0.2/dist/techcard.js',
+                'https://cdn.jsdelivr.net/npm/techcard@1.1.0/dist/techcard.js',
                 this,
+                event,
               )
             "
-            class="bg-slate-800 hover:bg-slate-700 text-slate-300 px-4 py-2 rounded-lg text-xs font-bold transition-all cursor-pointer"
+            class="bg-indigo-600 hover:bg-indigo-500 text-white px-6 py-3 rounded-xl text-xs font-black transition-all cursor-pointer shadow-lg active:scale-95"
           >
-            Copy CDN
+            COPY
           </button>
         </div>
       </div>
 
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <div class="flex flex-col sm:flex-row gap-5 justify-center items-center">
         <button
           id="demo-btn"
-          class="bg-white text-slate-950 px-8 py-4 rounded-xl font-bold hover:bg-slate-200 transition-all cursor-pointer"
+          class="group relative bg-white text-slate-950 px-10 py-5 rounded-2xl font-black transition-all hover:bg-slate-100 hover:-translate-y-1 shadow-xl cursor-pointer overflow-hidden"
         >
-          View Demo (Ctrl + Alt + D)
+          <span class="relative z-10 flex items-center gap-2">
+            Launch Demo
+            <kbd
+              class="hidden md:inline-block px-1.5 py-0.5 rounded border border-slate-200 text-[10px] bg-slate-50 opacity-50 font-sans"
+              >Ctrl + Alt + D</kbd
+            >
+          </span>
         </button>
+
         <a
           href="https://github.com/Tostenn/TechCard"
           target="_blank"
-          class="bg-slate-800 text-white px-8 py-4 rounded-xl font-bold hover:bg-slate-700 transition-all flex items-center justify-center gap-2"
+          class="flex items-center gap-3 text-slate-300 bg-slate-800/40 border border-white/5 px-10 py-5 rounded-2xl font-bold transition-all hover:bg-slate-800 hover:border-white/10"
         >
-          ⭐ Star on GitHub
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22v3.293c0 .319.192.694.805.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+            />
+          </svg>
+          Documentation
         </a>
       </div>
     </header>
 
-    <section class="max-w-5xl mx-auto px-6 mb-32">
+    <section class="max-w-5xl mx-auto px-6 mb-32 relative">
       <div
-        class="relative rounded-2xl overflow-hidden border border-slate-800 bg-slate-900 shadow-2xl"
+        class="absolute inset-0 bg-indigo-500/5 blur-[120px] rounded-full -z-10"
+      ></div>
+
+      <div
+        class="relative rounded-2xl overflow-hidden border border-slate-800 bg-slate-900 shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all hover:border-indigo-500/30"
       >
         <div
-          class="flex justify-between items-center p-4 border-b border-slate-800 bg-slate-900/50"
+          class="flex justify-between items-center p-4 border-b border-slate-800 bg-slate-900/80 backdrop-blur-md"
         >
-          <div class="flex gap-2">
-            <div class="w-3 h-3 rounded-full bg-red-500/50"></div>
-            <div class="w-3 h-3 rounded-full bg-amber-500/50"></div>
-            <div class="w-3 h-3 rounded-full bg-emerald-500/50"></div>
+          <div class="flex gap-2.5">
+            <div
+              class="w-3 h-3 rounded-full bg-[#ff5f56] shadow-[0_0_10px_rgba(255,95,86,0.2)]"
+            ></div>
+            <div
+              class="w-3 h-3 rounded-full bg-[#ffbd2e] shadow-[0_0_10px_rgba(255,189,46,0.2)]"
+            ></div>
+            <div
+              class="w-3 h-3 rounded-full bg-[#27c93f] shadow-[0_0_10px_rgba(39,201,63,0.2)]"
+            ></div>
           </div>
-          <div class="text-xs text-slate-600 font-mono">v1.1</div>
-          <div class="w-10"></div>
+          <div class="flex items-center gap-2">
+            <span
+              class="text-[10px] font-bold px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20"
+              >STABLE</span
+            >
+            <span class="text-xs text-slate-500 font-mono tracking-widest"
+              >TECHCARD_ENGINE_V1.1</span
+            >
+          </div>
+          <div class="w-16"></div>
         </div>
 
-        <div class="relative aspect-video bg-slate-950 group">
+        <div class="relative aspect-video bg-[#020617] group">
           <div
             id="carousel-track"
             class="flex w-full h-full overflow-x-auto scroll-smooth snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
           >
             <div
-              class="min-w-full h-full snap-center flex items-center justify-center relative"
+              class="min-w-full h-full snap-center flex items-center justify-center relative overflow-hidden"
             >
               <img
-                src="https://cdn.jsdelivr.net/gh/Tostenn/TechCard/public/images/demo-nord-solo.webp"
-                alt="Solo Mode nord"
-                class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500"
+                src="https://raw.githubusercontent.com/Tostenn/TechCard/refs/heads/main/public/images/demo-nord-solo.webp"
+                alt="Solo Mode Nord"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div
-                class="absolute bottom-4 left-4 bg-slate-900/80 backdrop-blur-sm text-xs text-slate-300 px-3 py-1.5 rounded-full border border-slate-700"
+                class="absolute bottom-6 left-6 flex items-center gap-2 bg-slate-950/60 backdrop-blur-md px-4 py-2 rounded-xl border border-white/10 text-sm text-white font-medium"
               >
-                Solo Mode (Nord Theme)
+                <span
+                  class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"
+                ></span>
+                Nord Theme
+                <span class="text-slate-400 ml-1 font-normal">(Solo)</span>
               </div>
             </div>
+
             <div
-              class="min-w-full h-full snap-center flex items-center justify-center relative"
+              class="min-w-full h-full snap-center flex items-center justify-center relative overflow-hidden"
             >
               <img
-                src="https://cdn.jsdelivr.net/gh/Tostenn/TechCard/public/images/demo-theme-nord-mode-solo-mini.webp"
-                alt="Solo Mode mini nord"
-                class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500"
+                src="https://raw.githubusercontent.com/Tostenn/TechCard/refs/heads/main/public/images/demo-theme-nord-mode-solo-mini.webp"
+                alt="Solo Mini Nord"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div
-                class="absolute bottom-4 left-4 bg-slate-900/80 backdrop-blur-sm text-xs text-slate-300 px-3 py-1.5 rounded-full border border-slate-700"
+                class="absolute bottom-6 left-6 flex items-center gap-2 bg-slate-950/60 backdrop-blur-md px-4 py-2 rounded-xl border border-white/10 text-sm text-white font-medium"
               >
-                Solo-mini Mode (Nord Theme)
+                <span
+                  class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"
+                ></span>
+                Nord Theme
+                <span class="text-slate-400 ml-1 font-normal">(Solo-mini)</span>
               </div>
             </div>
+
             <div
-              class="min-w-full h-full snap-center flex items-center justify-center relative"
+              class="min-w-full h-full snap-center flex items-center justify-center relative overflow-hidden"
             >
               <img
-                src="https://cdn.jsdelivr.net/gh/Tostenn/TechCard/public/images/demo-vscode-solo.webp"
-                alt="Solo Mode vscode"
-                class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500"
+                src="https://raw.githubusercontent.com/Tostenn/TechCard/refs/heads/main/public/images/demo-vscode-solo.webp"
+                alt="Solo Mode VSCode"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div
-                class="absolute bottom-4 left-4 bg-slate-900/80 backdrop-blur-sm text-xs text-slate-300 px-3 py-1.5 rounded-full border border-slate-700"
+                class="absolute bottom-6 left-6 flex items-center gap-2 bg-slate-950/60 backdrop-blur-md px-4 py-2 rounded-xl border border-white/10 text-sm text-white font-medium"
               >
-                Solo Version (VSCode Theme)
+                <span
+                  class="w-2 h-2 rounded-full bg-indigo-500 animate-pulse"
+                ></span>
+                VS Code Theme
+                <span class="text-slate-400 ml-1 font-normal"
+                  >(Builder API)</span
+                >
               </div>
             </div>
           </div>
 
           <button
             onclick="prevSlide()"
-            class="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-slate-900/80 hover:bg-slate-800 text-white items-center justify-center border border-slate-700 cursor-pointer opacity-0 group-hover:opacity-100 transition-opacity"
+            class="hidden md:flex absolute left-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/5 hover:bg-white/10 backdrop-blur-md text-white items-center justify-center border border-white/10 cursor-pointer opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110"
           >
-            ←
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
           </button>
+
           <button
             onclick="nextSlide()"
-            class="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-slate-900/80 hover:bg-slate-800 text-white items-center justify-center border border-slate-700 cursor-pointer opacity-0 group-hover:opacity-100 transition-opacity"
+            class="hidden md:flex absolute right-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/5 hover:bg-white/10 backdrop-blur-md text-white items-center justify-center border border-white/10 cursor-pointer opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110"
           >
-            →
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
           </button>
 
           <div
-            class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5 items-center bg-slate-900/60 backdrop-blur-sm px-3 py-2 rounded-full border border-slate-800"
+            class="absolute bottom-6 right-6 flex gap-2 items-center bg-slate-950/40 backdrop-blur-sm px-3 py-2 rounded-full border border-white/5"
           >
             <button
               onclick="goToSlide(0)"
-              class="carousel-dot w-5 h-2 rounded-full bg-white transition-all duration-300 cursor-pointer"
+              class="carousel-dot w-6 h-1.5 rounded-full bg-white transition-all duration-300 cursor-pointer"
             ></button>
             <button
               onclick="goToSlide(1)"
-              class="carousel-dot w-2 h-2 rounded-full bg-slate-600 hover:bg-slate-500 transition-all duration-300 cursor-pointer"
+              class="carousel-dot w-2 h-1.5 rounded-full bg-slate-600 hover:bg-slate-400 transition-all duration-300 cursor-pointer"
             ></button>
             <button
               onclick="goToSlide(2)"
-              class="carousel-dot w-2 h-2 rounded-full bg-slate-600 hover:bg-slate-500 transition-all duration-300 cursor-pointer"
+              class="carousel-dot w-2 h-1.5 rounded-full bg-slate-600 hover:bg-slate-400 transition-all duration-300 cursor-pointer"
             ></button>
           </div>
         </div>
@@ -255,8 +365,7 @@
           <span class="gradient-text">v1.1</span>
         </h2>
         <p class="mt-4 text-lg text-slate-400">
-          A completely redesigned architecture for more control and
-          flexibility.
+          A completely redesigned architecture for more control and flexibility.
         </p>
       </div>
 
@@ -322,8 +431,8 @@
           </div>
           <ul class="space-y-3 text-slate-300">
             <li>
-              <strong class="text-indigo-400">Fluent API:</strong> Elegant method
-              chaining (<code class="text-sm bg-slate-800 px-1 rounded"
+              <strong class="text-indigo-400">Fluent API:</strong> Elegant
+              method chaining (<code class="text-sm bg-slate-800 px-1 rounded"
                 >.setUser()</code
               >).
             </li>
@@ -332,12 +441,12 @@
               Dynamic CSS variable injection.
             </li>
             <li>
-              <strong class="text-indigo-400">Security:</strong> Strict validation via
+              <strong class="text-indigo-400">Security:</strong> Strict
+              validation via
               <code class="text-sm bg-slate-800 px-1 rounded">.build()</code>.
             </li>
             <li>
-              <strong class="text-indigo-400">Live Reload:</strong> New
-              method
+              <strong class="text-indigo-400">Live Reload:</strong> New method
               <code class="text-sm bg-slate-800 px-1 rounded">.rebuild()</code>
               optimized.
             </li>
@@ -469,8 +578,9 @@
           Designed for <span class="gradient-text">Developers</span>
         </h2>
         <p class="text-slate-400 mb-8 max-w-2xl mx-auto">
-          Forget endless configuration objects. TechCard v1.1
-          utilise le <strong>Builder Pattern</strong> pour a smooth, typed, and robust development experience.
+          Forget endless configuration objects. TechCard v1.1 utilise le
+          <strong>Builder Pattern</strong> pour a smooth, typed, and robust
+          development experience.
         </p>
 
         <div
@@ -663,31 +773,37 @@ myCard.<span class="text-blue-400">setTheme</span>(<span class="text-green-300">
         <div>
           <h2 class="text-3xl font-bold text-white mb-6">Why v1.1?</h2>
           <p class="text-slate-400 mb-6">
-            More than a simple update, v1.1 transforms TechCard into a truly infinitely customizable digital identity engine.
+            More than a simple update, v1.1 transforms TechCard into a truly
+            infinitely customizable digital identity engine.
           </p>
           <ul class="space-y-4 text-slate-400">
             <li class="flex gap-3">
               <span class="text-indigo-500 font-bold">✓</span>
               <span>
-                <strong>Fluent API (Builder):</strong> Configure your card step by step with an intuitive and robust method chain.
+                <strong>Fluent API (Builder):</strong> Configure your card step
+                by step with an intuitive and robust method chain.
               </span>
             </li>
             <li class="flex gap-3">
               <span class="text-indigo-500 font-bold">✓</span>
               <span>
-                <strong>Dynamic Themes:</strong> Inject your own CSS variables to create unique themes (VS Code, Dracula, Tokyo Night...).
+                <strong>Dynamic Themes:</strong> Inject your own CSS variables
+                to create unique themes (VS Code, Dracula, Tokyo Night...).
               </span>
             </li>
             <li class="flex gap-3">
               <span class="text-indigo-500 font-bold">✓</span>
               <span>
-                <strong>Strict Validation:</strong> The new <code>.build()</code> system guarantees your data integrity before every render.
+                <strong>Strict Validation:</strong> The new
+                <code>.build()</code> system guarantees your data integrity
+                before every render.
               </span>
             </li>
             <li class="flex gap-3">
               <span class="text-indigo-500 font-bold">✓</span>
               <span>
-                <strong>Live Rebuild:</strong> Update content or style in real time without reloading the page or corrupting the DOM.
+                <strong>Live Rebuild:</strong> Update content or style in real
+                time without reloading the page or corrupting the DOM.
               </span>
             </li>
           </ul>
@@ -703,7 +819,9 @@ myCard.<span class="text-blue-400">setTheme</span>(<span class="text-green-300">
           <p
             class="text-white font-medium mb-8 italic leading-relaxed relative z-10"
           >
-            "With v1.1, my goal was to give developers full control. You are no longer just using a component, you are building an experience that truly reflects you."
+            "With v1.1, my goal was to give developers full control. You are no
+            longer just using a component, you are building an experience that
+            truly reflects you."
           </p>
 
           <div class="flex items-center gap-4 relative z-10">
@@ -757,7 +875,9 @@ myCard.<span class="text-blue-400">setTheme</span>(<span class="text-green-300">
           </h2>
 
           <p class="text-slate-400 text-lg mb-10 leading-relaxed">
-            Help us shape the future of developer networking. Whether it is fixing a bug, proposing a feature, or improving documentation, your contribution is key.
+            Help us shape the future of developer networking. Whether it is
+            fixing a bug, proposing a feature, or improving documentation, your
+            contribution is key.
           </p>
 
           <div
@@ -948,26 +1068,13 @@ myCard.<span class="text-blue-400">setTheme</span>(<span class="text-green-300">
           })
           .setContent({
             projectGoal:
-              "My Mission\n**Build high-performance**, scalable applications with **clean architecture**.",
+              "Simplifying the web, one component at a time. TechCard is my signature on every project, showcasing my stack and connecting me to opportunities.",
             techStack: {
-             
               frontend: [
                 { name: "Tailwind", version: "4.x" },
                 { name: "ts", version: "4.x" },
               ],
             },
-            stats: [
-              {
-                label: "Downloads",
-                value: "8k+",
-                description: "PyPi packages",
-              },
-              {
-                label: "Experience",
-                value: "3 years",
-                description: "Full-stack dev",
-              },
-            ],
           });
 
         // 2. List of random themes (Presets)
@@ -1139,7 +1246,9 @@ myCard.<span class="text-blue-400">setTheme</span>(<span class="text-green-300">
         });
 
         // Silent first build to initialize
-        myCard.build();
+        myCard
+          .build()
+          // .open();
       };
     </script>
   </body>

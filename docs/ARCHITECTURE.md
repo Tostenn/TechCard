@@ -1,90 +1,98 @@
-# 🏗️ Architecture Design - TechCard
+# 🏗️ Architecture Design - TechCard v1.1
 
-This document explains the technical core of **TechCard**, focusing on how we achieve total style isolation and a lightweight footprint.
+This document describes the technical core of **TechCard**, with a focus on style isolation, the rendering engine, and the implementation of the Builder Pattern.
 
 ## 📂 Project Structure
 
 ```text
 TechCard/
-├── docs
-├── index.html
-├── package-lock.json
-├── package.json
-├── postcss.config.js
-├── public
-│   └── images
-├── readme.md
-├── src
-│   ├── TechCard.ts
-│   ├── components
-│   │   ├── BaseCard.ts
-│   │   ├── CardSolo.ts
-│   │   └── CardSoloMini.ts
-│   ├── index.css
-│   ├── index.ts
-│   ├── tests
-│   │   ├── labo.html
-│   │   └── main.html
-│   ├── types
-│   │   └── index.ts
-│   ├── utils
-│   │   ├── dom.ts
-│   │   └── icons.ts
-│   └── vite-env.d.ts
-├── tailwind.config.js
-├── tsconfig.json
-└── vite.config.ts
+├── docs/                 # Specialized documentation
+├── src/
+│   ├── TechCard.ts       # Entry point & Orchestrator (Builder API)
+│   ├── components/       # Rendering classes (BaseCard, CardSolo...)
+│   ├── types/            # TypeScript interfaces and types
+│   ├── utils/            # Markdown engine, icons, and DOM helpers
+│   └── index.css         # Tailwind styles (Source)
+├── public/               # Static assets & demos
+├── vite.config.ts        # Build configuration (UMD/ESM)
+└── tailwind.config.js    # Design system configuration
 ```
+
+---
+
+## 🏗️ The Builder Pattern & Fluent API
+
+In version 1.1, TechCard moved away from a simple object-based configuration in favor of the **Builder Pattern**. This architectural choice offers several advantages:
+
+* **State Accumulation**: Methods like `.setUser()` or `.setTheme()` update an internal state without triggering expensive DOM renders immediately.
+* **Validation Gate**: The `.build()` method acts as a synchronous validator. It ensures that all required fields are present before the rendering engine starts.
+* **Fluent Interface**: By returning `this` at each step, we provide a natural and modern API for developers.
+
 ---
 
 ## 🛡️ The Shadow DOM Strategy
 
-One of the biggest challenges for a third-party widget is **CSS leakage**. We don't want the host website's styles to break our card, and we certainly don't want our styles to affect the host site.
+One of the biggest challenges of a third-party widget is **CSS leakage**. We do not want the host site’s styles to break our card, and vice versa.
 
-To solve this, **TechCard** uses the **Shadow DOM (Open mode)**:
-* **Encapsulation**: All HTML and CSS for the card are contained within a Shadow Root.
-* **Isolation**: Global CSS rules from the host (like `div { background: red; }`) will not penetrate the Shadow Boundary.
-* **Performance**: The browser treats the Shadow DOM as a separate, scoped tree, which can be more efficient for rendering small widgets.
+To solve this, TechCard uses **Shadow DOM (Open Mode)**:
+
+* **Encapsulation**: All the card’s HTML and CSS are contained within a Shadow Root.
+* **Isolation**: The host site’s global CSS rules do not cross the Shadow DOM boundary.
+* **Performance**: The browser treats the Shadow DOM as a separate tree, optimizing rendering.
 
 ---
 
 ## 🎨 Tailwind CSS & Dynamic Injection
 
-Since Tailwind CSS normally generates a global stylesheet, we had to adapt it for the Shadow DOM.
+Since Tailwind normally generates a global stylesheet, we adapted it for the Shadow DOM through dynamic injection.
 
-### The "Inline" Trick
-In our TypeScript source (`TechCard.ts`), we import our Tailwind styles using Vite's `?inline` suffix:
-```typescript
-import tailwindStyles from "./index.css?inline";
-```
-
-### The Injection Process
-1.  **PostCSS** processes `@tailwind base`, `components`, and `utilities` during the build.
-2.  The resulting CSS string is bundled directly into the JavaScript file.
-3.  When `new TechCard()` is called, we create a `<style>` element, fill it with the processed CSS, and append it directly to the **Shadow Root**.
-
-This ensures that the card is **self-contained**: you only need to import the `.js` file; no extra `.css` link is required.
+1. **The “Inline” trick**: In `TechCard.ts`, we import the styles using Vite’s `?inline` suffix.
+2. **Injection process**: When `new TechCard()` is called, we create a `<style>` element, fill it with the CSS processed by PostCSS, and append it directly to the **Shadow Root**.
+3. **Result**: The card is **self-contained**. No external `.css` file is required by the end user.
 
 ---
 
-## 📦 Build Pipeline & Tooling
+## 🧩 Component Hierarchy (Inheritance)
 
-The project leverages a modern toolchain to ensure the best developer experience and smallest bundle size:
+To keep the code DRY (*Don’t Repeat Yourself*), we use a class inheritance model for the different layouts:
 
-* **Vite 8**: Used as the primary bundler for its extreme speed and native support for TypeScript and PostCSS.
-* **TypeScript**: Provides the type safety necessary for a library intended to be used by others.
-* **Terser**: Minifies the final UMD and ESM bundles to keep the footprint "ultra-lightweight".
-* **Rollup (via Vite)**: Specifically configured to handle dual-format outputs (`.js` for UMD and `.mjs` for ESM) while maintaining clean global variable assignments.
+1. **BaseCard (Abstract)**: Contains shared logic (SVG icon injection, Markdown parsing, base structure).
+2. **CardSolo / CardSoloMini**: Specialized classes that extend `BaseCard` to implement specific designs.
+
+This structure makes it easy to add new layouts (for example `CardTeam`) by extending the base logic.
+
+---
+
+## 🔄 Lifecycle & Rendering
+
+The lifecycle of a TechCard instance follows these precise steps:
+
+1. **Initialization**: `new TechCard()` prepares the default options and global event listeners.
+2. **Configuration**: The user chains methods to populate the profile data.
+3. **Build**: `.build()` validates the data and prepares the final HTML template.
+4. **Mounting**: `.open()` injects the **Shadow Host** into the document body.
+5. **Rebuild**: `.rebuild()` lets you update the card (for example, change the theme) without destroying the instance.
+
+---
+
+## ⚡ Zero-Dependency Philosophy
+
+TechCard is built in **Pure TypeScript**.
+
+* **No Framework**: We do not use React or Vue to avoid inflating the bundle and causing version conflicts.
+* **Custom Markdown Parser**: Instead of a heavy library, we use a lightweight utility (`src/utils/markdown.ts`) to handle basic formatting (bold, links).
+* **Icon System**: Icons are stored as optimized SVG path mappings, injected only when needed to keep the bundle **under 25kb**.
 
 ---
 
 ## ⌨️ Global Event Listeners
 
-To support the **`Ctrl + Alt + D`** shortcut, TechCard attaches a single listener to the global `window` object. 
-* **Why "D"?** It stands for **Developer** and **Demo**, reinforcing our focus on the dev community.
-* **Optimization**: The listener is lightweight and only triggers the toggle mechanism of the existing TechCard instance.
+To support the **`Ctrl + Alt + D`** shortcut, TechCard attaches a single listener to the global `window` object.
+
+* **Optimization**: The listener is passive and only triggers the existing instance’s toggle mechanism.
 
 ---
 
-**Author**: [Kouya Tosten](https://github.com/Tostenn)  
-**Version**: 1.2.0
+**Author**: [Tosten Kouya](https://github.com/Tostenn)
+**Version**: 1.1.x
+**License**: MIT
