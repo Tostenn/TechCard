@@ -457,7 +457,7 @@
 
       <div class="my-10 flex justify-center">
         <a
-          href="/playground.html"
+          href="#/playground.html"
           class="group relative inline-flex items-center gap-2 rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-slate-900 transition-all hover:bg-slate-200 hover:scale-105"
         >
           <svg
@@ -556,14 +556,14 @@
 
   "radius-card": "24px",       // Look moderne arrondi
   "radius-btn": "12px",
-  "overlay-bg": "rgba(40,42,54,0.9)"
+  "overlay-bg": "40 42 54 /0.9"
 });</code></pre>
         </div>
       </div>
 
       <div class="my-8 flex justify-center">
         <a
-          href="/themes.html"
+          href="#/themes.html"
           class="inline-flex items-center gap-2 text-sm font-semibold text-indigo-400 hover:text-indigo-300 transition"
         >
           View the full themes gallery &rarr;
@@ -1025,6 +1025,30 @@ myCard.<span class="text-blue-400">setTheme</span>(<span class="text-green-300">
 
       startAutoplay();
 
+      function copySimpleText(text, button, event) {
+        event.preventDefault();
+
+        navigator.clipboard
+          .writeText(text)
+          .then(() => {
+            const originalText = button.innerText;
+
+            // Effet visuel
+            button.innerText = "COPIED ✓";
+            button.classList.add("bg-green-600", "scale-105");
+
+            // Revenir à l'état initial
+            setTimeout(() => {
+              button.innerText = originalText;
+              button.classList.remove("bg-green-600", "scale-105");
+            }, 1500);
+          })
+          .catch(() => {
+            // fallback si clipboard échoue
+            alert("Erreur lors de la copie");
+          });
+      }
+
       function copyCode(elementId, event) {
         // Add 'event' here
         const codeText = document.getElementById(elementId).innerText;
@@ -1246,9 +1270,8 @@ myCard.<span class="text-blue-400">setTheme</span>(<span class="text-green-300">
         });
 
         // Silent first build to initialize
-        myCard
-          .build()
-          // .open();
+        myCard.build();
+        // .open();
       };
     </script>
   </body>
