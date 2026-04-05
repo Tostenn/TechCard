@@ -1,6 +1,6 @@
 {
   "name": "techcard",
-  "version": "1.0.2",
+  "version": "1.1.",
   "description": "**TechCard** is an elegant, ultra-lightweight, and highly customizable profile widget designed to be integrated into any website with a single line of code.",
   "main": "src/index.ts",
   "directories": {

@@ -4,7 +4,7 @@
 
 TechCard is an ultra-lightweight profile widget designed to provide an instant professional showcase for developers. Built with **TypeScript** and **Shadow DOM**, it ensures a perfect, conflict-free render on any website, from static portfolios to complex React/Vue applications.
 
-**[Explore Live Demo](https://tostenn.github.io/TechCard/)** | **[View Themes](https://www.google.com/search?q=%23-unlimited-theming)**
+**[Explore Live Demo](https://tostenn.github.io/TechCard/)** | **[View Themes](docs/THEMES.md)**
 
 -----
 
