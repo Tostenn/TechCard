@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TechCard v1.1.x | Your TypeScript-powered tech identity</title>
+    <title>TechCard v1.1 | Embeddable developer profile card</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap");
@@ -29,22 +29,22 @@
     </style>
     <meta
       name="title"
-      content="TechCard v1.1.x | Your TypeScript-powered tech identity"
+      content="TechCard v1.1 | Embeddable developer profile card"
     />
     <meta
       name="description"
-      content="An elegant, ultra-lightweight, and highly customizable profile widget designed to showcase your tech stack in seconds."
+      content="TechCard is an embeddable profile card for developers. It showcases your identity, stack, and links on any website in seconds."
     />
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://tostenn.github.io/TechCard/" />
     <meta
       property="og:title"
-      content="TechCard v1.1.x | Your TypeScript-powered tech identity"
+      content="TechCard v1.1 | Embeddable developer profile card"
     />
     <meta
       property="og:description"
-      content="Integrate your professional tech identity into any website with a single line of code. Built with TypeScript and Tailwind CSS."
+      content="Embed a clean developer profile card into any website with a single script. Built with TypeScript and Shadow DOM."
     />
     <meta
       property="og:image"
@@ -58,17 +58,17 @@
     />
     <meta
       property="twitter:title"
-      content="TechCard v1.1.x | Your TypeScript-powered tech identity"
+      content="TechCard v1.1 | Embeddable developer profile card"
     />
     <meta
       property="twitter:description"
-      content="An elegant, ultra-lightweight, and highly customizable profile widget for developers."
+      content="Embed a clean developer profile card into any website with a single script."
     />
     <meta
       property="twitter:image"
       content="https://raw.githubusercontent.com/Tostenn/TechCard/refs/heads/main/public/images/demo-vscode-solo.webp"
     />
-    <script type="module" crossorigin src="/TechCard/assets/main-CkJUdpzn.js"></script>
+    <script type="module" crossorigin src="/TechCard/assets/main-XOyRClq5.js"></script>
   </head>
   <body class="bg-slate-950 text-slate-200 selection:bg-purple-500/30">
     <nav
@@ -84,7 +84,7 @@
           <span
             class="text-[10px] font-bold bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 px-2 py-0.5 rounded-full uppercase tracking-tighter"
           >
-            v1.1 Stable
+            v1.1 Live
           </span>
         </div>
 
@@ -115,95 +115,127 @@
       </div>
     </nav>
 
-    <header class="relative max-w-5xl mx-auto px-6 pt-24 pb-20 text-center">
-      <div
-        class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-indigo-600/10 blur-[120px] -z-10 rounded-full"
-      ></div>
+<header class="relative max-w-5xl mx-auto px-6 pt-24 pb-20 text-center">
+  <div
+    class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-indigo-600/10 blur-[120px] -z-10 rounded-full"
+  ></div>
 
-      <div
-        class="inline-flex items-center gap-2 bg-indigo-500/10 border border-indigo-500/20 px-4 py-1.5 rounded-full text-indigo-400 text-[11px] font-black mb-8 uppercase tracking-[0.2em]"
-      >
-        <span class="relative flex h-2 w-2">
-          <span
-            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"
-          ></span>
-          <span
-            class="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"
-          ></span>
-        </span>
-        New: v1.1 Builder API is live
+  <div
+    class="inline-flex items-center gap-2 bg-indigo-500/10 border border-indigo-500/20 px-4 py-1.5 rounded-full text-indigo-400 text-[11px] font-black mb-8 uppercase tracking-[0.2em]"
+  >
+    <span class="relative flex h-2 w-2">
+      <span
+        class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"
+      ></span>
+      <span
+        class="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"
+      ></span>
+    </span>
+    Live demo · Press Ctrl + Alt + D
+  </div>
+
+  <h1
+    class="text-5xl md:text-7xl font-black text-white mb-6 tracking-tighter leading-[1.08]"
+  >
+    A developer profile card
+    <br class="hidden md:block" />
+    you can embed <span class="gradient-text">anywhere</span>.
+  </h1>
+
+  <p class="max-w-3xl mx-auto text-lg md:text-xl text-slate-400 leading-relaxed mb-8">
+    TechCard is a small, isolated widget that shows your name, role, stack,
+    and links on any website with one script. It works for portfolios,
+    products, and personal pages.
+  </p>
+
+  <div class="flex flex-wrap justify-center gap-3 text-sm text-slate-300 mb-10">
+    <span class="px-4 py-2 rounded-full bg-slate-900/80 border border-white/10">
+      One script to add
+    </span>
+    <span class="px-4 py-2 rounded-full bg-slate-900/80 border border-white/10">
+      Shadow DOM isolation
+    </span>
+    <span class="px-4 py-2 rounded-full bg-slate-900/80 border border-white/10">
+      Press Ctrl + Alt + D
+    </span>
+  </div>
+
+  <div class="max-w-2xl mx-auto mb-12 relative group">
+    <div
+      class="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-2xl blur opacity-15 group-hover:opacity-30 transition duration-1000"
+    ></div>
+    <div
+      class="relative flex items-center bg-slate-900/80 backdrop-blur-xl border border-white/10 p-2 rounded-2xl shadow-2xl"
+    >
+      <div class="flex items-center gap-3 px-4 text-slate-500">
+        <span class="text-xs font-mono">CDN</span>
+        <div class="w-px h-4 bg-slate-800"></div>
       </div>
-
-      <h1
-        class="text-5xl md:text-8xl font-black text-white mb-8 tracking-tighter leading-[1.1]"
+      <code
+        class="flex-1 text-left text-sm text-indigo-300 truncate font-mono tracking-tight"
       >
-        Your <span class="gradient-text">tech identity</span>,<br
-          class="hidden md:block"
+        https://cdn.jsdelivr.net/npm/techcard@1.1.0/dist/techcard.js
+      </code>
+      <button
+        onclick="
+          copySimpleText(
+            'https://cdn.jsdelivr.net/npm/techcard@1.1.0/dist/techcard.js',
+            this,
+            event,
+          )
+        "
+        class="bg-indigo-600 hover:bg-indigo-500 text-white px-6 py-3 rounded-xl text-xs font-black transition-all cursor-pointer shadow-lg active:scale-95"
+      >
+        Copy script
+      </button>
+    </div>
+  </div>
+
+  <div class="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+    <button
+      id="demo-btn"
+      class="group relative bg-white text-slate-950 px-10 py-5 rounded-2xl font-black transition-all hover:bg-slate-100 hover:-translate-y-1 shadow-xl cursor-pointer overflow-hidden"
+    >
+      <span class="relative z-10 flex items-center gap-2">
+        Try live demo
+        <kbd
+          class="hidden md:inline-block px-1.5 py-0.5 rounded border border-slate-200 text-[10px] bg-slate-50 opacity-50 font-sans"
+        >
+          Ctrl + Alt + D
+        </kbd>
+      </span>
+    </button>
+
+    <a
+      href="https://github.com/Tostenn/TechCard"
+      target="_blank"
+      class="flex items-center gap-3 text-slate-300 bg-slate-800/40 border border-white/5 px-10 py-5 rounded-2xl font-bold transition-all hover:bg-slate-800 hover:border-white/10"
+    >
+      <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+        <path
+          d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22v3.293c0 .319.192.694.805.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
         />
-        everywhere.
-      </h1>
-
-      <div class="max-w-2xl mx-auto mb-12 relative group">
-        <div
-          class="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-2xl blur opacity-15 group-hover:opacity-30 transition duration-1000"
-        ></div>
-        <div
-          class="relative flex items-center bg-slate-900/80 backdrop-blur-xl border border-white/10 p-2 rounded-2xl shadow-2xl"
-        >
-          <div class="flex items-center gap-3 px-4 text-slate-500">
-            <span class="text-xs font-mono">CDN</span>
-            <div class="w-px h-4 bg-slate-800"></div>
-          </div>
-          <code
-            class="flex-1 text-left text-sm text-indigo-300 truncate font-mono tracking-tight"
-          >
-            https://cdn.jsdelivr.net/npm/techcard@1.1.0/dist/techcard.js
-          </code>
-          <button
-            onclick="
-              copySimpleText(
-                'https://cdn.jsdelivr.net/npm/techcard@1.1.0/dist/techcard.js',
-                this,
-                event,
-              )
-            "
-            class="bg-indigo-600 hover:bg-indigo-500 text-white px-6 py-3 rounded-xl text-xs font-black transition-all cursor-pointer shadow-lg active:scale-95"
-          >
-            COPY
-          </button>
-        </div>
-      </div>
-
-      <div class="flex flex-col sm:flex-row gap-5 justify-center items-center">
-        <button
-          id="demo-btn"
-          class="group relative bg-white text-slate-950 px-10 py-5 rounded-2xl font-black transition-all hover:bg-slate-100 hover:-translate-y-1 shadow-xl cursor-pointer overflow-hidden"
-        >
-          <span class="relative z-10 flex items-center gap-2">
-            Launch Demo
-            <kbd
-              class="hidden md:inline-block px-1.5 py-0.5 rounded border border-slate-200 text-[10px] bg-slate-50 opacity-50 font-sans"
-              >Ctrl + Alt + D</kbd
-            >
-          </span>
-        </button>
-
-        <a
-          href="https://github.com/Tostenn/TechCard"
-          target="_blank"
-          class="flex items-center gap-3 text-slate-300 bg-slate-800/40 border border-white/5 px-10 py-5 rounded-2xl font-bold transition-all hover:bg-slate-800 hover:border-white/10"
-        >
-          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-            <path
-              d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22v3.293c0 .319.192.694.805.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
-            />
-          </svg>
-          Documentation
-        </a>
-      </div>
-    </header>
+      </svg>
+      View source
+    </a>
+  </div>
+</header>
 
     <section class="max-w-5xl mx-auto px-6 mb-32 relative">
+      <div class="grid gap-6 md:grid-cols-3 mb-10">
+        <div class="rounded-2xl border border-slate-800 bg-slate-900/50 p-6">
+          <div class="text-sm font-semibold text-white mb-2">What it is</div>
+          <p class="text-sm text-slate-400">An embeddable profile card for developers, with a clean layout and a simple API.</p>
+        </div>
+        <div class="rounded-2xl border border-slate-800 bg-slate-900/50 p-6">
+          <div class="text-sm font-semibold text-white mb-2">Why it helps</div>
+          <p class="text-sm text-slate-400">Visitors understand who you are, what you build, and where to find you without extra explanation.</p>
+        </div>
+        <div class="rounded-2xl border border-slate-800 bg-slate-900/50 p-6">
+          <div class="text-sm font-semibold text-white mb-2">How it works</div>
+          <p class="text-sm text-slate-400">Add one script, set your data, choose a theme, and open the card.</p>
+        </div>
+      </div>
       <div
         class="absolute inset-0 bg-indigo-500/5 blur-[120px] rounded-full -z-10"
       ></div>
@@ -256,8 +288,8 @@
                 <span
                   class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"
                 ></span>
-                Nord Theme
-                <span class="text-slate-400 ml-1 font-normal">(Solo)</span>
+                Nord preset
+                <span class="text-slate-400 ml-1 font-normal">Single card</span>
               </div>
             </div>
 
@@ -275,8 +307,8 @@
                 <span
                   class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"
                 ></span>
-                Nord Theme
-                <span class="text-slate-400 ml-1 font-normal">(Solo-mini)</span>
+                Nord preset
+                <span class="text-slate-400 ml-1 font-normal">Compact card</span>
               </div>
             </div>
 
@@ -362,11 +394,10 @@
     <section class="mt-24 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12">
         <h2 class="text-3xl font-bold text-white sm:text-4xl">
-          From <span class="text-slate-400 line-through">v1.0.2</span> to
-          <span class="gradient-text">v1.1</span>
+          What changed in <span class="gradient-text">v1.1</span>
         </h2>
         <p class="mt-4 text-lg text-slate-400">
-          A completely redesigned architecture for more control and flexibility.
+          The update keeps the same goal, but makes the API easier to read, easier to extend, and easier to trust.
         </p>
       </div>
 
@@ -395,10 +426,10 @@
             </h3>
           </div>
           <ul class="space-y-3 text-slate-400">
-            <li>• A massive configuration object that is hard to read.</li>
-            <li>• Hard-coded themes (Light / Dark only).</li>
-            <li>• No strict validation before rendering.</li>
-            <li>• Hard to update the card in real time.</li>
+            <li>• A large configuration object that is harder to scan.</li>
+            <li>• Limited theme presets.</li>
+            <li>• No validation step before rendering.</li>
+            <li>• Updates were less practical in real time.</li>
           </ul>
         </div>
 
@@ -428,28 +459,20 @@
                 ></path>
               </svg>
             </div>
-            <h3 class="text-xl font-semibold text-white">v1.1 (API Builder)</h3>
+            <h3 class="text-xl font-semibold text-white">v1.1 (Builder API)</h3>
           </div>
           <ul class="space-y-3 text-slate-300">
             <li>
-              <strong class="text-indigo-400">Fluent API:</strong> Elegant
-              method chaining (<code class="text-sm bg-slate-800 px-1 rounded"
-                >.setUser()</code
-              >).
+              <strong class="text-indigo-400">Simple chaining:</strong> Configure the card step by step with readable methods (<code class="text-sm bg-slate-800 px-1 rounded">.setUser()</code>).
             </li>
             <li>
-              <strong class="text-indigo-400">Unlimited themes:</strong>
-              Dynamic CSS variable injection.
+              <strong class="text-indigo-400">Custom themes:</strong> Adjust colors and shape with CSS variables.
             </li>
             <li>
-              <strong class="text-indigo-400">Security:</strong> Strict
-              validation via
-              <code class="text-sm bg-slate-800 px-1 rounded">.build()</code>.
+              <strong class="text-indigo-400">Validation:</strong> <code class="text-sm bg-slate-800 px-1 rounded">.build()</code> checks the data before render.
             </li>
             <li>
-              <strong class="text-indigo-400">Live Reload:</strong> New method
-              <code class="text-sm bg-slate-800 px-1 rounded">.rebuild()</code>
-              optimized.
+              <strong class="text-indigo-400">Live updates:</strong> Use <code class="text-sm bg-slate-800 px-1 rounded">.rebuild()</code> when the data or theme changes.
             </li>
           </ul>
         </div>
@@ -457,7 +480,7 @@
 
       <div class="my-10 flex justify-center">
         <a
-          href="#/playground.html"
+          href="./playground.html"
           class="group relative inline-flex items-center gap-2 rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-slate-900 transition-all hover:bg-slate-200 hover:scale-105"
         >
           <svg
@@ -473,19 +496,17 @@
               d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
             ></path>
           </svg>
-          Tester le Live Editor
+          Open the Live Editor
         </a>
       </div>
     </section>
     <section class="mt-32 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12">
         <h2 class="text-3xl font-bold text-white sm:text-4xl">
-          Unlimited <span class="gradient-text">themes</span>
+          Custom <span class="gradient-text">themes</span>
         </h2>
         <p class="mt-4 text-lg text-slate-400">
-          Do not limit yourself to light or dark mode anymore. With the new
-          <code class="text-indigo-400">setTheme()</code>, the only limit is
-          your creativity. Here are two examples.
+          Start from a preset or override the variables you need with <code class="text-indigo-400">setTheme()</code>. The result stays consistent with your site.
         </p>
       </div>
 
@@ -563,10 +584,10 @@
 
       <div class="my-8 flex justify-center">
         <a
-          href="#/themes.html"
+          href="./themes.html"
           class="inline-flex items-center gap-2 text-sm font-semibold text-indigo-400 hover:text-indigo-300 transition"
         >
-          View the full themes gallery &rarr;
+          Browse all themes &rarr;
         </a>
       </div>
     </section>
@@ -576,12 +597,10 @@
         class="rounded-3xl border border-slate-800 bg-gradient-to-b from-slate-900 to-slate-950 p-8 sm:p-12 text-center"
       >
         <h2 class="text-2xl font-bold text-white sm:text-3xl mb-4">
-          Designed for <span class="gradient-text">Developers</span>
+          Built for <span class="gradient-text">developers</span>
         </h2>
         <p class="text-slate-400 mb-8 max-w-2xl mx-auto">
-          Forget endless configuration objects. TechCard v1.1 utilise le
-          <strong>Builder Pattern</strong> pour a smooth, typed, and robust
-          development experience.
+          The Builder pattern keeps the setup readable, the code organized, and the final output predictable.
         </p>
 
         <div
@@ -602,7 +621,7 @@ myCard
   })
   .<span class="text-blue-400">build</span>(); <span class="text-slate-500">// Strict data validation before rendering</span>
 
-<span class="text-slate-500">// On-the-fly changes? No problem.</span>
+<span class="text-slate-500">// Update the theme or content, then rebuild.</span>
 myCard.<span class="text-blue-400">setTheme</span>(<span class="text-green-300">"dark"</span>).<span class="text-blue-400">rebuild</span>().<span class="text-blue-400">open</span>();
 </code></pre>
         </div>
@@ -619,14 +638,14 @@ myCard.<span class="text-blue-400">setTheme</span>(<span class="text-green-300">
               clip-rule="evenodd"
             ></path>
           </svg>
-          Lire la documentation de l'API (README)
+          Read the API documentation
         </a>
       </div>
     </section>
 
     <main id="docs" class="max-w-4xl mx-auto px-6 space-y-32 pb-32">
       <section id="vision" class="text-center">
-        <h2 class="text-3xl font-bold text-white mb-6">Vision & Purpose</h2>
+        <h2 class="text-3xl font-bold text-white mb-6">Why TechCard exists</h2>
         <p class="text-slate-400 max-w-2xl mx-auto mb-12">
           TechCard is designed to bridge the gap between a developer's work and
           their professional identity.
@@ -637,11 +656,10 @@ myCard.<span class="text-blue-400">setTheme</span>(<span class="text-green-300">
           >
             <div class="text-2xl mb-3">🖋️</div>
             <h3 class="text-lg font-bold text-white mb-2">
-              The Creator's Signature
+              Your signature
             </h3>
             <p class="text-sm text-slate-400">
-              Just as an architect signs their plans, leave a subtle, elegant
-              footprint on every project you build.
+              Add a small, polished signature to the projects you ship.
             </p>
           </div>
           <div
@@ -649,11 +667,10 @@ myCard.<span class="text-blue-400">setTheme</span>(<span class="text-green-300">
           >
             <div class="text-2xl mb-3">🛠️</div>
             <h3 class="text-lg font-bold text-white mb-2">
-              Technical Transparency
+              Clear information
             </h3>
             <p class="text-sm text-slate-400">
-              Enable peers to instantly see the "who" and "how" behind a
-              website, showcasing your stack.
+              Let visitors see who built the page and what tools were used.
             </p>
           </div>
           <div
@@ -661,11 +678,10 @@ myCard.<span class="text-blue-400">setTheme</span>(<span class="text-green-300">
           >
             <div class="text-2xl mb-3">⚡</div>
             <h3 class="text-lg font-bold text-white mb-2">
-              Frictionless Connectivity
+              Easy to reach
             </h3>
             <p class="text-sm text-slate-400">
-              Reduce the distance to opportunities by making your profiles
-              accessible in one click.
+              Make your profile and social links available without extra steps.
             </p>
           </div>
         </div>
@@ -680,15 +696,10 @@ myCard.<span class="text-blue-400">setTheme</span>(<span class="text-green-300">
         ></div>
 
         <h2 class="text-2xl font-bold text-white mb-4 relative z-10">
-          Auto-mapped Icons & Contribution
+          Icon mapping & contribution
         </h2>
         <p class="text-slate-400 mb-8 max-w-2xl relative z-10">
-          TechCard automatically maps strings like <code>"github"</code> or
-          <code>"react"</code> to their respective logos to keep your config
-          clean.
-          <strong
-            >Is your favorite stack or social network missing? Add it!</strong
-          >
+          TechCard maps strings like <code>"github"</code> or <code>"react"</code> to the right icons so the config stays simple. <strong>Missing a stack or social network? Add it through a pull request.</strong>
         </p>
 
         <div class="grid md:grid-cols-2 gap-8 relative z-10">
@@ -696,7 +707,7 @@ myCard.<span class="text-blue-400">setTheme</span>(<span class="text-green-300">
             <h3
               class="text-sm font-bold text-white uppercase tracking-wider mb-4"
             >
-              How mapping works
+              How the mapping works
             </h3>
             <div
               class="bg-slate-950 rounded-xl p-4 border border-slate-800 font-mono text-xs text-slate-300"
@@ -730,7 +741,7 @@ myCard.<span class="text-blue-400">setTheme</span>(<span class="text-green-300">
             <h3
               class="text-sm font-bold text-white uppercase tracking-wider mb-4"
             >
-              How to contribute icons
+              How to contribute
             </h3>
             <ol class="space-y-4 text-sm text-slate-400">
               <li class="flex gap-3">
@@ -962,7 +973,7 @@ myCard.<span class="text-blue-400">setTheme</span>(<span class="text-green-300">
         href="https://github.com/Tostenn"
         class="text-slate-300 hover:text-white transition-colors"
         >Tostenn</a
-      >. Published on npm. MIT License.
+      >. Published on npm. MIT licensed.
     </footer>
 
     <script>
