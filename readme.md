@@ -127,5 +127,5 @@ TechCard is released under the **MIT License**. Feel free to use it, fork it, an
 
 -----
 
-**Built with ❤️ by [Tosten Kouya](https://github.com/Tostenn)**
+**Built with  by [Tosten Kouya](https://github.com/Tostenn)**
 *Helping developers leave their signature on the web.*
